@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ListaPessoasComponent implements OnInit {
 
   @Input() pessoas?: any[];
+  @Input() tipo:string = "";
   constructor() { }
 
   ngOnInit(): void {

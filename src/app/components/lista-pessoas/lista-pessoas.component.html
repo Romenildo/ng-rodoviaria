@@ -1,6 +1,6 @@
 <div class="pessoas">
 
-    <app-pessoa
+    <app-pessoa [tipo]="tipo"
       *ngFor="let pessoa of pessoas"
       [pessoa]="pessoa"
       (onRemove)="handleRemover($event)">

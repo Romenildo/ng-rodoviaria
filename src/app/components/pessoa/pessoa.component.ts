@@ -8,6 +8,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class PessoaComponent implements OnInit {
 
   @Input() pessoa?: any;
+  @Input() tipo?: any;
 
   @Output('onRemove') removeEmitter: EventEmitter<any> = new EventEmitter();
   constructor() { }

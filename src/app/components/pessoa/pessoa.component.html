@@ -31,7 +31,7 @@
         <label for="contato">{{pessoa.contato}}</label>
       </div>
 
-      <div class="campo" *ngIf="pessoa.cnh !== null">
+      <div class="campo" *ngIf="tipo ==='motorista'">
         <label for="cnh" class="bold">Cnh:</label>
         <label for="cnh">{{pessoa.cnh}}</label>
       </div>

@@ -23,6 +23,9 @@ import { PessoaComponent } from './components/pessoa/pessoa.component';
 import { ModalModule } from './components/modal/modal.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CadMotoristaComponent } from './components/cadastro/cad-motorista/cad-motorista.component';
+import { CadCobradorComponent } from './components/cadastro/cad-cobrador/cad-cobrador.component';
+import { ListaPassagensComponent } from './components/lista-passagens/lista-passagens.component';
+import { PassagensComponent } from './components/passagens/passagens.component';
 
 
 @NgModule({
@@ -39,6 +42,9 @@ import { CadMotoristaComponent } from './components/cadastro/cad-motorista/cad-m
     ListaPessoasComponent,
     PessoaComponent,
     CadMotoristaComponent,
+    CadCobradorComponent,
+    ListaPassagensComponent,
+    PassagensComponent,
   ],
   imports: [
     BrowserModule,
