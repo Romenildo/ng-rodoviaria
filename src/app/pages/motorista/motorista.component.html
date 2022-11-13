@@ -1,5 +1,30 @@
 <mat-card class="home mat-elevation-z3">
-    <mat-card-title class="title">
-        Motorista
-    </mat-card-title>
+
+    <div class="conteudo">
+        <div class="titulo">
+            <span>Motoristas</span>
+        </div>
+
+        <div class="filtros">
+            <div class="campo">
+                <label for="id">Id:</label>
+                <input type="text">
+            </div>
+            <div class="campo">
+                <label for="nome">Nome:</label>
+                <input type="text">
+            </div>
+        </div>
+
+        <div class="botoes">
+            <button type="button" class="btn-filtro">Filtrar</button>
+            <button type="button" class="btn-cadastro">Cadastrar</button>
+        </div>
+
+    </div>
+
+    <app-lista-pessoas class="lista-pessoas" [pessoas]="motoristas"></app-lista-pessoas>
+
+    
+    
 </mat-card>

@@ -1,7 +1,7 @@
 .sidenav{
     background-color:var(--primary);
     width: 250px;
-    box-shadow: 2px 2px 5px black;
+    box-shadow: 1px 1px 3px black;
 
     a{
         color: #fff;
@@ -16,6 +16,7 @@
         font-size: 21px;
     }
     .logo{
+        margin-top: 70px;
         background-color: #fff;
         height: 80px;
         padding-top: 40px;

@@ -17,6 +17,8 @@ import { CobradorComponent } from './pages/cobrador/cobrador.component';
 import { OnibusComponent } from './pages/onibus/onibus.component';
 import { PassagemComponent } from './pages/passagem/passagem.component';  
 import {MatCardModule} from '@angular/material/card';
+import { ListaPessoasComponent } from './components/lista-pessoas/lista-pessoas.component';
+import { PessoaComponent } from './components/pessoa/pessoa.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import {MatCardModule} from '@angular/material/card';
     MotoristaComponent,
     CobradorComponent,
     OnibusComponent,
-    PassagemComponent
+    PassagemComponent,
+    ListaPessoasComponent,
+    PessoaComponent
   ],
   imports: [
     BrowserModule,

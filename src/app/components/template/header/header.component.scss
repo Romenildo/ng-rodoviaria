@@ -4,10 +4,11 @@
     background-color: var(--primary);
     height: 45px;
     color: #fff;
-
+    position:fixed;
+    z-index: 999;
     h1{
         position: fixed;
-        left: 480px;
+        left: 40%;
     }
 
     .menu-button{
@@ -15,6 +16,7 @@
         background-color: transparent;
         color: #fff;
         padding: 5px 10px;
+        margin-left: 5%;
         &:hover{
             cursor: pointer;
             background-color: rgba(255, 255, 255, 0.163);

@@ -1,0 +1,53 @@
+<div class="pessoa">
+
+  <div class="conteudo">
+
+    <img src="https://st2.depositphotos.com/11742109/48212/v/600/depositphotos_482126926-stock-illustration-gender-neutral-profile-avatar-front.jpg" alt="">
+
+    <div class="dados-pessoais">
+      <p>Dados Pessoais</p>
+      
+      <div class="campo">
+        <label for="id" class="bold">id:</label>
+        <label for="id">{{pessoa.id}}</label>
+      </div>
+
+      <div class="campo">
+        <label for="nome" class="bold">Nome:</label>
+        <label for="nome"> {{pessoa.nome}}</label>
+
+        <label for="sobrenome" class="bold" style="padding-left: 15%;">Sobrenome:</label>
+        <label for="sobrenome"> {{pessoa.sobrenome}}</label>
+      </div>
+
+      <div class="campo">
+        <label for="data" class="bold">RG:</label>
+        <label for="data"> {{pessoa.rg}}</label>
+        <label for="data" class="bold"style="padding-left: 15%;" >Data Nascimento:</label>
+        <label for="data"> {{pessoa.dataNascimento}}</label>
+      </div>
+      <div class="campo">
+        <label for="contato" class="bold">contato:</label>
+        <label for="contato">{{pessoa.contato}}</label>
+      </div>
+
+      <div class="campo" *ngIf="pessoa.cnh !== null">
+        <label for="cnh" class="bold">Cnh:</label>
+        <label for="cnh">{{pessoa.cnh}}</label>
+      </div>
+      <div class="campo">
+        <label for="salario" class="bold" style="padding-left: 30%;">Salário:</label>
+        <label for="salario">{{pessoa.salario}}</label>
+      </div>
+    </div>
+
+
+  </div>
+    
+    <div class="descricao">
+      <button
+        type="button"
+        class="btnRemover"
+        (click)="remover()">Remover</button>
+    </div>
+  </div>

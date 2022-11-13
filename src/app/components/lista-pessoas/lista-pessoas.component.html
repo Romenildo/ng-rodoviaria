@@ -1,0 +1,9 @@
+<div class="pessoas">
+
+    <app-pessoa
+      *ngFor="let pessoa of pessoas"
+      [pessoa]="pessoa"
+      (onRemove)="handleRemover($event)">
+    </app-pessoa>
+    
+  </div>

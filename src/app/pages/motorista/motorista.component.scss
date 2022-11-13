@@ -1,0 +1,79 @@
+.conteudo {
+
+    background-color: rgb(248, 248, 248);
+    border-radius: 4px;
+
+    .titulo {
+        color: #fff;
+        background: var(--primary);
+        height: 60px;
+        display: table;
+        width: 100%;
+        border-radius: 8px;
+
+        span {
+            display: table-cell;
+            vertical-align: middle;
+            padding-left: 30px;
+            font-size: 26px;
+            font-weight: 600;
+        }
+    }
+
+    .filtros{
+        margin: 10px 20px;
+        display: flex;
+        gap: 30px;
+        
+        .campo{
+            display: flex;
+            gap: 5px;
+            label {
+                font-size: 16px;
+                text-transform: uppercase;
+                padding-top: 5px;
+              }
+          
+              input {
+                width: 100%;
+                font-size: 22px;
+              }
+        }
+
+        
+
+    }
+
+
+    .botoes {
+
+        padding: 15px 15px;
+        display: flex;
+        gap: 10px;
+        .btn-filtro {
+            background: var(--primary);
+            border: none;
+            color: #fff;
+            padding: 10px 15px;
+            text-transform: uppercase;
+            transition: all .2s;
+
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+
+        .btn-cadastro {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 10px 15px;
+            text-transform: uppercase;
+            transition: all .2s;
+
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+}
