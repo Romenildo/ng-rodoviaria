@@ -19,6 +19,7 @@ import { PassagemComponent } from './pages/passagem/passagem.component';
 import {MatCardModule} from '@angular/material/card';
 import { ListaPessoasComponent } from './components/lista-pessoas/lista-pessoas.component';
 import { PessoaComponent } from './components/pessoa/pessoa.component';
+import { ModalModule } from './components/modal/modal.module';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { PessoaComponent } from './components/pessoa/pessoa.component';
     OnibusComponent,
     PassagemComponent,
     ListaPessoasComponent,
-    PessoaComponent
+    PessoaComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +42,8 @@ import { PessoaComponent } from './components/pessoa/pessoa.component';
     MatSidenavModule,
     MatListModule,
     BrowserAnimationsModule,
-    MatCardModule
+    MatCardModule,
+    ModalModule
   ],
   providers: [SideNavService],
   

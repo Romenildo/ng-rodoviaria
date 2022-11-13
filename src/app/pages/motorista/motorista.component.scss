@@ -47,7 +47,7 @@
 
     .botoes {
 
-        padding: 15px 15px;
+        padding: 15px 15px 0px 15px;
         display: flex;
         gap: 10px;
         .btn-filtro {
@@ -60,6 +60,7 @@
 
             &:hover {
                 opacity: 0.8;
+                cursor: pointer;
             }
         }
 
@@ -73,7 +74,12 @@
 
             &:hover {
                 opacity: 0.8;
+                cursor: pointer;
             }
         }
+    }
+    p{
+        padding-left: 20px;
+        color: var(--primary);
     }
 }

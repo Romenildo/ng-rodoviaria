@@ -18,13 +18,18 @@
 
         <div class="botoes">
             <button type="button" class="btn-filtro">Filtrar</button>
-            <button type="button" class="btn-cadastro">Cadastrar</button>
+            <button type="button" class="btn-cadastro" (click)="modal.toggle()">Cadastrar</button>
         </div>
+        <p>quant: {{motoristas.length}}</p>
 
     </div>
 
+
     <app-lista-pessoas class="lista-pessoas" [pessoas]="motoristas"></app-lista-pessoas>
 
-    
-    
 </mat-card>
+
+<app-modal #modal>
+    <h1>Teste</h1>
+
+</app-modal>

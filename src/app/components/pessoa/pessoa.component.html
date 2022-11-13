@@ -2,7 +2,7 @@
 
   <div class="conteudo">
 
-    <img src="https://st2.depositphotos.com/11742109/48212/v/600/depositphotos_482126926-stock-illustration-gender-neutral-profile-avatar-front.jpg" alt="">
+    <img [src]="pessoa.imagem" alt="">
 
     <div class="dados-pessoais">
       <p>Dados Pessoais</p>
@@ -37,7 +37,7 @@
       </div>
       <div class="campo">
         <label for="salario" class="bold" style="padding-left: 30%;">Salário:</label>
-        <label for="salario">{{pessoa.salario}}</label>
+        <label for="salario"> R${{pessoa.salario}}</label>
       </div>
     </div>
 

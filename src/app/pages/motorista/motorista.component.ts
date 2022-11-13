@@ -16,7 +16,8 @@ export class MotoristaComponent implements OnInit {
       dataNascimento: "10/10/1021",
       contato: "(83)984871921",
       cnh: "182191012912",
-      salario:1200
+      salario:1200,
+      imagem:"https://st2.depositphotos.com/11742109/48212/v/600/depositphotos_482126926-stock-illustration-gender-neutral-profile-avatar-front.jpg"
     },
     {
       id: "2",
@@ -26,7 +27,19 @@ export class MotoristaComponent implements OnInit {
       dataNascimento: "99/99/1029",
       contato: "(83)984871921",
       cnh: "182191012912",
-      salario:1200
+      salario:1200,
+      imagem:"https://st2.depositphotos.com/11742109/48212/v/600/depositphotos_482126926-stock-illustration-gender-neutral-profile-avatar-front.jpg"
+    },
+    {
+      id: "3",
+      nome:"Joao",
+      sobrenome:"kleber",
+      rg:"19.192-01",
+      dataNascimento: "99/99/1029",
+      contato: "(83)984871921",
+      cnh: "182191012912",
+      salario:1200,
+      imagem:"https://st2.depositphotos.com/11742109/48212/v/600/depositphotos_482126926-stock-illustration-gender-neutral-profile-avatar-front.jpg"
     }
   ]
   constructor() { }
