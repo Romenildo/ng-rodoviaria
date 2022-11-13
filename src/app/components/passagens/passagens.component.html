@@ -1,4 +1,30 @@
 <div class="passagem">
 
+    <p>Rota id: {{passagem.id}}</p>
+    <div class="conteudo">
+        <div class="local-hora">
+            <p> {{passagem.destinoSaida}}</p>
+            <p> {{passagem.horarioSaida}}</p>
+        </div>
 
+        <div class="linha-horizontal"></div>
+
+        <div class="local-hora">
+            <p> {{passagem.destinoChegada}}</p>
+            <p> {{passagem.horarioSaida}}</p>
+        </div>
+
+        <div class="selecionar">
+            <div class="preco">
+                <label for="preco">Preço: </label>
+                <label for="preco">R$ {{passagem.precoPassagem}}</label>
+            </div>
+    
+            <em class="material-icons">
+                arrow_forward_ios
+            </em>
+        </div>
+        
     </div>
+
+</div>
