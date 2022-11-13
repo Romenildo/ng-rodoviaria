@@ -1,4 +1,4 @@
-<div class="passagem">
+<div class="passagem" (click)="cadastrarPassageiro()">
 
     <p>Rota id: {{passagem.id}}</p>
     <div class="conteudo">
@@ -11,7 +11,7 @@
 
         <div class="local-hora">
             <p> {{passagem.destinoChegada}}</p>
-            <p> {{passagem.horarioSaida}}</p>
+            <p> {{passagem.horarioChegada}}</p>
         </div>
 
         <div class="selecionar">
@@ -19,8 +19,9 @@
                 <label for="preco">Preço: </label>
                 <label for="preco">R$ {{passagem.precoPassagem}}</label>
             </div>
-    
-            <em class="material-icons">
+            
+            
+            <em  class="material-icons">
                 arrow_forward_ios
             </em>
         </div>

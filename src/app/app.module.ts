@@ -25,6 +25,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CadMotoristaComponent } from './components/cadastro/cad-motorista/cad-motorista.component';
 import { CadCobradorComponent } from './components/cadastro/cad-cobrador/cad-cobrador.component';
 import { PassagensComponent } from './components/passagens/passagens.component';
+import { PassageiroComponent } from './pages/passageiro/passageiro.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { PassagensComponent } from './components/passagens/passagens.component';
     CadMotoristaComponent,
     CadCobradorComponent,
     PassagensComponent,
+    PassageiroComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-passagens',
@@ -8,9 +9,12 @@ import { Component, Input, OnInit } from '@angular/core';
 export class PassagensComponent implements OnInit {
 
   @Input() passagem?: any;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
+  cadastrarPassageiro() {
+    this.router.navigate(["passagem","passageiro"]);
+  }
 }
