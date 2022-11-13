@@ -50,33 +50,7 @@
         padding: 15px 15px 0px 15px;
         display: flex;
         gap: 10px;
-        .btn-filtro {
-            background: var(--primary);
-            border: none;
-            color: #fff;
-            padding: 10px 15px;
-            text-transform: uppercase;
-            transition: all .2s;
-
-            &:hover {
-                opacity: 0.8;
-                cursor: pointer;
-            }
-        }
-
-        .btn-cadastro {
-            background: transparent;
-            border: 1px solid var(--primary);
-            color: var(--primary);
-            padding: 10px 15px;
-            text-transform: uppercase;
-            transition: all .2s;
-
-            &:hover {
-                opacity: 0.8;
-                cursor: pointer;
-            }
-        }
+        
     }
     p{
         padding-left: 20px;

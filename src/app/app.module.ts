@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +21,9 @@ import {MatCardModule} from '@angular/material/card';
 import { ListaPessoasComponent } from './components/lista-pessoas/lista-pessoas.component';
 import { PessoaComponent } from './components/pessoa/pessoa.component';
 import { ModalModule } from './components/modal/modal.module';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { CadMotoristaComponent } from './components/cadastro/cad-motorista/cad-motorista.component';
+
 
 @NgModule({
   declarations: [
@@ -34,6 +38,7 @@ import { ModalModule } from './components/modal/modal.module';
     PassagemComponent,
     ListaPessoasComponent,
     PessoaComponent,
+    CadMotoristaComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +48,11 @@ import { ModalModule } from './components/modal/modal.module';
     MatListModule,
     BrowserAnimationsModule,
     MatCardModule,
-    ModalModule
+    ModalModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    
   ],
   providers: [SideNavService],
   

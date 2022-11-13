@@ -31,5 +31,25 @@
         
       }
     }
+
+    .botoes{
+      display: flex;
+      justify-content: flex-end;
+      gap: 7px;
+      .btn-icon{
+        background: transparent;
+        border: 1px solid var(--primary);
+        color: var(--primary);
+        padding: 1px 1px;
+        text-transform: uppercase;
+        transition: all .2s;
+        
+
+        &:hover {
+            opacity: 0.8;
+            cursor: pointer;
+        }
+      }
+    }
     
   }
