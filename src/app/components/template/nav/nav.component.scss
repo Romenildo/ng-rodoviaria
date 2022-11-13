@@ -1,0 +1,34 @@
+.sidenav{
+    background-color:var(--primary);
+    width: 250px;
+    box-shadow: 2px 2px 5px black;
+
+    a{
+        color: #fff;
+        width: 94%;
+        margin-left: 10px;
+        &:hover{
+            border-bottom: 2px solid white;
+        }
+    }
+    em{
+        padding-right: 18px;
+        font-size: 21px;
+    }
+    .logo{
+        background-color: #fff;
+        height: 80px;
+        padding-top: 40px;
+        p{
+            color: var(--primary);
+            text-align: center;
+            font-size: 30px;
+            font-weight: 500;
+        }
+    }
+}
+
+.content {
+    padding: 16px;
+    background-color: var(--bg);
+}

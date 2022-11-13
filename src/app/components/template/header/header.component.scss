@@ -1,0 +1,26 @@
+.header {
+    display: flex;
+    align-items: center;
+    background-color: var(--primary);
+    height: 45px;
+    color: #fff;
+
+    h1{
+        position: fixed;
+        left: 480px;
+    }
+
+    .menu-button{
+        border: none;
+        background-color: transparent;
+        color: #fff;
+        padding: 5px 10px;
+        &:hover{
+            cursor: pointer;
+            background-color: rgba(255, 255, 255, 0.163);
+            border-radius: 25px;
+
+        }
+    }
+    
+}

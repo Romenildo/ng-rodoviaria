@@ -1,0 +1,54 @@
+<mat-sidenav-container class="container">
+    <mat-sidenav #sidenav class="sidenav" mode="side" opened fixedInViewport="true" fixedTopGap="45">
+        <mat-nav-list class="nav-list">
+
+            <div class="logo">
+                <p> Rodoviária</p>
+            </div>
+
+            <!-- Routes -->
+            <a mat-list-item routerLink="/">
+                <em class="material-icons">
+                    home
+                </em>
+                Página Inicial
+            </a>
+            <a mat-list-item routerLink="/Motorista">
+                <em class="material-icons">
+                    person
+                </em>
+                Motorista
+            </a>
+            <a mat-list-item routerLink='/Cobrador'>
+                <em class="material-icons">
+                    person
+                </em>
+                Cobrador
+            </a>
+            <a mat-list-item routerLink='/Onibus'>
+                <em class="material-icons">
+                    analytics
+                </em>
+                Onibus
+            </a>
+            <a mat-list-item routerLink='/Passagem'>
+                <em class="material-icons">
+                    receipt
+                </em>
+                passagem
+            </a>
+            <a mat-list-item routerLink='/Passageiro'>
+                <em class="material-icons">
+                    person
+                </em>
+                Passageiro
+            </a>
+
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content class="content">
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+
+</mat-sidenav-container>
