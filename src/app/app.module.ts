@@ -26,6 +26,8 @@ import { CadMotoristaComponent } from './components/cadastro/cad-motorista/cad-m
 import { CadCobradorComponent } from './components/cadastro/cad-cobrador/cad-cobrador.component';
 import { PassagensComponent } from './components/passagens/passagens.component';
 import { PassageiroComponent } from './pages/passageiro/passageiro.component';
+import { CadPassageiroComponent } from './components/cadastro/cad-passageiro/cad-passageiro.component';
+import { FinalizadoComponent } from './pages/finalizado/finalizado.component';
 
 
 @NgModule({
@@ -45,6 +47,8 @@ import { PassageiroComponent } from './pages/passageiro/passageiro.component';
     CadCobradorComponent,
     PassagensComponent,
     PassageiroComponent,
+    CadPassageiroComponent,
+    FinalizadoComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,72 @@
+<div class="container">
+
+    <form [formGroup]="passageiroForm" (ngSubmit)="salvar()">
+
+        <div class="campos" >
+          <div class="campo">
+            <label for="nome">nome:</label>
+            <input type="text" id="nome" formControlName="nome">
+            <p *ngIf="!nome?.valid && (nome?.dirty || nome?.touched)" class="error">
+              Campo obrigatório
+            </p>
+          </div>
+          <div class="campo">
+            <label for="sobrenome">sobrenome:</label>
+            <input type="text" id="sobrenome" formControlName="sobrenome">
+            <p *ngIf="!sobrenome?.valid && (sobrenome?.dirty || sobrenome?.touched)" class="error">
+              Campo obrigatório
+            </p>
+          </div>
+        </div>
+      
+        <div class="campos" >
+          <div class="campo">
+            <label for="rg">Rg:</label>
+            <input type="text" id="rg" formControlName="rg">
+            <p *ngIf="!rg?.valid && (rg?.dirty || rg?.touched)" class="error">
+              Campo obrigatório
+            </p>
+          </div>
+          <div class="campo">
+            <label for="dataNascimento">data nascimento:</label>
+            <input type="text" id="dataNascimento" formControlName="dataNascimento">
+            <p *ngIf="!dataNascimento?.valid && (dataNascimento?.dirty || dataNascimento?.touched)" class="error">
+              Campo obrigatório
+            </p>
+          </div>
+        </div>
+    
+        <div class="campo">
+          <label for="contato">contato</label>
+          <input type="text" id="contato" formControlName="contato">
+          <p *ngIf="!contato?.valid && (contato?.dirty || contato?.touched)" class="error">
+            Campo obrigatório
+          </p>
+        </div>
+    
+        <div class="campo">
+          <label for="email">email</label>
+          <input type="text" id="email" formControlName="email">
+          <p *ngIf="!email?.valid && (email?.dirty || email?.touched)" class="error">
+            Campo obrigatório
+          </p>
+        </div>
+        
+    
+        <div class="checkbox">
+          <input type="checkbox" id="seguro" formControlName="seguro" />
+          <label for="seguro">Seguro</label>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" id="tipoTarifa" formControlName="tipoTarifa" />
+          <label for="tipoTarifa">Estudante</label>
+        </div>
+        
+        <div class="acoes">
+          <button class="btn-cadastro" type="button" (click)="VoltarPassagens()">Voltar</button>
+          <button type="submit" class="btn-filtro" (click)="FinalizarCompra()">Confirmar</button>
+        </div>
+      </form>
+    
+
+</div>
