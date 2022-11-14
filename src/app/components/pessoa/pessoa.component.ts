@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { CobradorService } from 'src/app/services/cobrador.service';
 
 @Component({
   selector: 'app-pessoa',
@@ -11,13 +12,24 @@ export class PessoaComponent implements OnInit {
   @Input() tipo?: any;
 
   @Output('onRemove') removeEmitter: EventEmitter<any> = new EventEmitter();
-  constructor() { }
+  constructor(private cobradorService:CobradorService) { }
 
   ngOnInit(): void {
   }
 
-  remover(){
-
+  remover() {
+    if(this.tipo == "cobrador"){
+      if (this.pessoa != null) {
+        this.cobradorService
+        .removerCobrador(this.pessoa.id)
+        .subscribe(() => {
+          
+        }, error => {
+          alert("Ops! não foi possível remover.");
+        });
+      }
+    }
+    
   }
 
   editar(){

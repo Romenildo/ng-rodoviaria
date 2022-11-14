@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CobradorService } from 'src/app/services/cobrador.service';
 
 @Component({
   selector: 'app-cobrador',
@@ -39,9 +40,13 @@ export class CobradorComponent implements OnInit {
       imagem:"https://st2.depositphotos.com/11742109/48212/v/600/depositphotos_482126926-stock-illustration-gender-neutral-profile-avatar-front.jpg"
     }
   ]
-  constructor() { }
+  constructor(private cobradorService: CobradorService) { }
 
   ngOnInit(): void {
+    this.cobradorService.getCobradores().subscribe(resposta => {
+      
+      this.cobradores = resposta;
+    });
   }
 
 }

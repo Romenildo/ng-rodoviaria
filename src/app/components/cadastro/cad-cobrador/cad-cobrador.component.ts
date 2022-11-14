@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CobradorService } from 'src/app/services/cobrador.service';
 
 @Component({
   selector: 'app-cad-cobrador',
@@ -13,7 +14,8 @@ export class CadCobradorComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private cobradorService: CobradorService
   ) {
     this.cobradorForm = this.fb.group({
       nome: ['', [Validators.required, Validators.maxLength(20)]],
@@ -23,7 +25,6 @@ export class CadCobradorComponent implements OnInit {
       contato: ['', [Validators.required]],
       salario: ['', [Validators.required]],
       imagem: [''],
-
     })
   }
 
@@ -53,6 +54,18 @@ export class CadCobradorComponent implements OnInit {
 
 
   salvar() {
-
+    if (this.cobradorForm.valid) {
+      //adicionar foto
+      //"https://st2.depositphotos.com/11742109/48212/v/600/depositphotos_482126926-stock-illustration-gender-neutral-profile-avatar-front.jpg"
+      this.cobradorService
+      .cadastrarCobrador(this.cobradorForm.value)
+      .subscribe(() => {
+        //emit para fechar o bagui
+      }, error => {
+        alert("Não foi possível realizar o cadastro.");
+      });
+    } else {
+      alert("Verifique os campos obrigatórios!");
+    }
   }
 }

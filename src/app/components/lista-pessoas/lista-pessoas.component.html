@@ -5,5 +5,9 @@
       [pessoa]="pessoa"
       (onRemove)="handleRemover($event)">
     </app-pessoa>
+
+    <div class="vazio" *ngIf="pessoas?.length == 0">
+        Lista Vazia
+    </div>
     
   </div>
