@@ -4,9 +4,11 @@
         <div class="titulo">
             <span>Passagens</span>
         </div>     
-        <p>quant: {{passagens.length}}</p>
+        
     </div>
-
+    <app-cad-passagem></app-cad-passagem>
+    
+    <p>quant: {{passagens.length}}</p>
     <app-passagens
     *ngFor="let passagem of passagens"
     [passagem]="passagem"

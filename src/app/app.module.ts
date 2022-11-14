@@ -28,7 +28,7 @@ import { PassagensComponent } from './components/passagens/passagens.component';
 import { PassageiroComponent } from './pages/passageiro/passageiro.component';
 import { CadPassageiroComponent } from './components/cadastro/cad-passageiro/cad-passageiro.component';
 import { FinalizadoComponent } from './pages/finalizado/finalizado.component';
-
+import { CadPassagemComponent } from './components/cadastro/cad-passagem/cad-passagem.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +49,7 @@ import { FinalizadoComponent } from './pages/finalizado/finalizado.component';
     PassageiroComponent,
     CadPassageiroComponent,
     FinalizadoComponent,
+    CadPassagemComponent 
   ],
   imports: [
     BrowserModule,
