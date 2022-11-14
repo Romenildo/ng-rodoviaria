@@ -1,0 +1,47 @@
+
+.passagem{
+    background: #fff;
+    padding: 5px 5px;
+    border: #000 1px dotted;
+    margin: 10px 10px;
+    border-radius: 5px;
+    &:hover{
+        background: rgb(240, 239, 239);
+        cursor: pointer;
+    }
+    p{
+        padding-bottom: 6px;
+    }
+
+    .conteudo{
+        display: block;
+        gap: 30px;
+        padding-left: 100px;
+        color: var(--escura);
+
+        .local-hora{
+            text-align: center;
+            text-transform: uppercase;
+
+        }
+        .linha-horizontal{
+            width: 300px;
+            background-color: var(--primary);
+            height: 5px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+        .selecionar{
+            position: absolute;
+            margin-left: 70%;
+            display: flex;
+            gap: 90px;
+            font-weight: 700;
+            em{
+                padding-left: auto;
+            }
+        }
+
+        
+    }
+}

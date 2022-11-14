@@ -29,6 +29,8 @@ import { PassageiroComponent } from './pages/passageiro/passageiro.component';
 import { CadPassageiroComponent } from './components/cadastro/cad-passageiro/cad-passageiro.component';
 import { FinalizadoComponent } from './pages/finalizado/finalizado.component';
 import { CadPassagemComponent } from './components/cadastro/cad-passagem/cad-passagem.component';
+import { CadOnibusComponent } from './components/cadastro/cad-onibus/cad-onibus.component';
+import { ListaOnibusComponent } from './components/lista-onibus/lista-onibus.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,9 @@ import { CadPassagemComponent } from './components/cadastro/cad-passagem/cad-pas
     PassageiroComponent,
     CadPassageiroComponent,
     FinalizadoComponent,
-    CadPassagemComponent 
+    CadPassagemComponent,
+    CadOnibusComponent,
+    ListaOnibusComponent 
   ],
   imports: [
     BrowserModule,

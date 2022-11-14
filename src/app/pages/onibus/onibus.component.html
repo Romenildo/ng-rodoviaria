@@ -1,5 +1,19 @@
 <mat-card class="home mat-elevation-z3">
-    <mat-card-title class="title">
-        Onibus
-    </mat-card-title>
+
+    <div class="conteudo">
+        <div class="titulo">
+            <span>Onibus</span>
+        </div>     
+        
+    </div>
+    <app-cad-onibus></app-cad-onibus>
+    
+    <p>quant: {{listaOnibus.length}}</p>
+
+    <app-lista-onibus
+    *ngFor="let onibus of listaOnibus"
+    [onibus]="onibus"
+    >
+    </app-lista-onibus>
+
 </mat-card>

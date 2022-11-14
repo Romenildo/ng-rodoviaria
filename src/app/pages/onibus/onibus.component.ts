@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OnibusComponent implements OnInit {
 
+  listaOnibus: any[] = [
+    {
+      id:2,
+      nomeViacao:"Rio Tinto",
+      cobrador: "joao Kleber",
+      motorista: "joao gomes"
+    },
+    {
+    }
+  ]
   constructor() { }
 
   ngOnInit(): void {
   }
-
 }
