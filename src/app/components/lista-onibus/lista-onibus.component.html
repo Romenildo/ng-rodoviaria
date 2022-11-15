@@ -1,16 +1,119 @@
 <div class="passagem">
 
-    <p>Rota id: {{onibus.id}}</p>
     <div class="conteudo">
-        <p>{{onibus.nomeViacao}}</p>
-        
+        <h2>{{onibus.nomeViacao}}</h2>
 
-        <div class="butoes" style="display: flex;gap:15px;">
-            <button>Adicionar motorista</button>
-            <button>Adicionar Cobrador</button>
-            <button>Listar Passageiros</button>
+        <div class="infos">
+
+            <p style="color: #000; font-weight: 700;">Cobrador:</p>
+            <div class="info-conteudo" *ngIf="onibus.cobrador !== null">
+                <img [src]="onibus.cobrador.imagem" alt="">
+                <div class="nome-sobrenome">
+                    <p>Nome: {{onibus.cobrador.nome}} {{onibus.cobrador.sobrenome}}</p>
+                    <p>Contato: {{onibus.cobrador.contato}}</p>
+                </div>
+            </div>
+
+            <div class="info-botao" *ngIf="onibus.cobrador == null">
+                <button (click)="adicionarCobrador()">Adicionar Cobrador</button>
+            </div>
+
+            <div class="lista-completa" *ngIf="mostrarCobradores">
+                <div class="info-conteudo" *ngFor="let cobrador of cobradores">
+                    <div class="item" (click)="vincularCobrador(cobrador)">
+                        <img [src]="cobrador.imagem" alt="">
+                        <div class="nome-sobrenome">
+                            <p>Nome: {{cobrador.nome}} {{cobrador.sobrenome}}</p>
+                            <p>Contato: {{cobrador.contato}}</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p style="color: #000; font-weight: 700;">Motorista:</p>
+            <div class="info-conteudo" *ngIf="onibus.motorista !== null">
+                <img [src]="onibus.motorista.imagem" alt="">
+                <div class="nome-sobrenome">
+                    <p>Nome: {{onibus.motorista.nome}} {{onibus.motorista.sobrenome}}</p>
+                    <p>Contato: {{onibus.motorista.contato}}</p>
+                </div>
+                <p class="nome-sobrenome">Cnh: {{onibus.motorista.cnh}}</p>
+            </div>
+
+            <div class="info-botao" *ngIf="onibus.motorista == null">
+                <button (click)="adicionarMotorista()">Adicionar Motorista</button>
+            </div>
+
+            <div class="lista-completa" *ngIf="mostrarMotoristas">
+                <div class="info-conteudo" *ngFor="let motorista of motoristas">
+                    <div class="item" (click)="vincularMotorista(motorista)">
+                        <img [src]="motorista.imagem" alt="">
+                        <div class="nome-sobrenome">
+                            <p>Nome: {{motorista.nome}} {{motorista.sobrenome}}</p>
+                            <p>Contato: {{motorista.contato}}</p>
+                        </div>
+                        <p class="nome-sobrenome">Cnh: {{motorista.cnh}}</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <p style="color: #000; font-weight: 700;">Passagem:</p>
+            <div class="info-conteudo" *ngIf="onibus.passagem !== null">
+
+                <div class="block">
+                    <p>Saida: </p>
+                    <div class="info-passagem">
+                        <p>{{onibus.passagem.destinoSaida}}</p>
+                        <p> {{onibus.passagem.horarioSaida}}</p>
+                    </div>
+                </div>
+
+                <div class="block">
+                    <p>Chegada: </p>
+                    <div class="info-passagem">
+                        <p>{{onibus.passagem.destinoChegada}}</p>
+                        <p> {{onibus.passagem.horarioChegada}}</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="info-botao" *ngIf="onibus.passagem == null">
+                <button (click)="adicionarPassagem()">Adicionar Passagem</button>
+            </div>
+
+            <div class="lista-completa" *ngIf="mostrarPassagens">
+                <div class="info-conteudo" *ngFor="let passagem of passagens">
+                    <div class="item" (click)="vincularPassagem(passagem)">
+
+                        <div class="block">
+                            <p>Saida: </p>
+                            <div class="info-passagem">
+                                <p>{{passagem.destinoSaida}}</p>
+                                <p> {{passagem.horarioSaida}}</p>
+                            </div>
+                        </div>
+
+                        <div class="block">
+                            <p>Chegada: </p>
+                            <div class="info-passagem">
+                                <p>{{passagem.destinoChegada}}</p>
+                                <p> {{passagem.horarioChegada}}</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+
         </div>
-        
+
     </div>
 
 </div>

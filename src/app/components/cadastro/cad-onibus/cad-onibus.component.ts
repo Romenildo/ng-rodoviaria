@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { OnibusService } from 'src/app/services/onibus.service';
 
 @Component({
   selector: 'app-cad-onibus',
@@ -13,11 +14,14 @@ export class CadOnibusComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private onibusService:OnibusService
   ) {
     this.onibusForm = this.fb.group({
       nomeViacao: ['', [Validators.required, Validators.maxLength(20)]],
-
+      cobrador: [[]],
+      motorista: [[]],
+      passagem: [[]],
     })
   }
 
@@ -29,7 +33,18 @@ export class CadOnibusComponent implements OnInit {
   
 
   salvar() {
-
+    if (this.onibusForm.valid) {
+      this.onibusService
+      .cadastrarOnibus(this.onibusForm.value)
+      .subscribe((res) => {
+        const currentItems = this.onibusService.listaOnibus$.getValue();
+        currentItems.push(res);
+      }, error => {
+        alert("Não foi possível realizar o cadastro.");
+      });
+    } else {
+      alert("Verifique os campos obrigatórios!");
+    }
   }
   
 }

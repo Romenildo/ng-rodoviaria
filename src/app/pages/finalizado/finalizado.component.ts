@@ -25,7 +25,6 @@ export class FinalizadoComponent implements OnInit {
     console.log(this.nomeSobrenome)
     
     this.passageiroService.comprarPassagem(this.idPassagem, this.nomeSobrenome).subscribe((res:any)=>{
-      console.log(res)
       this.element = `
       <img style="width: 250px;height: 250px; padding-top: 75px;" src="https://localhost:7151/v1/api/Passageiro/${this.nomeSobrenome}/ComprarPassagem/${this.idPassagem}" alt="">
                 `;

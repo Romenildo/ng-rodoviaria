@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OnibusService } from 'src/app/services/onibus.service';
 
 @Component({
   selector: 'app-onibus',
@@ -7,18 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OnibusComponent implements OnInit {
 
-  listaOnibus: any[] = [
-    {
-      id:2,
-      nomeViacao:"Rio Tinto",
-      cobrador: "joao Kleber",
-      motorista: "joao gomes"
-    },
-    {
-    }
-  ]
-  constructor() { }
+  listaOnibus: any[] = []
+  constructor(private onibusService:OnibusService) { }
 
   ngOnInit(): void {
+    this.onibusService.listaOnibus$.subscribe(o => this.listaOnibus = o)
+
+    this.onibusService.getOnibus().subscribe(resposta => {
+      this.onibusService.listaOnibus$.next(resposta);
+    });
   }
 }
