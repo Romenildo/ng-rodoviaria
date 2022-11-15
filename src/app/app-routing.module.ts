@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CadCobradorComponent } from './components/cadastro/cad-cobrador/cad-cobrador.component';
+import { CadMotoristaComponent } from './components/cadastro/cad-motorista/cad-motorista.component';
 import { CobradorComponent } from './pages/cobrador/cobrador.component';
 import { FinalizadoComponent } from './pages/finalizado/finalizado.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -18,8 +20,16 @@ const routes: Routes = [
     component: MotoristaComponent
   },
   {
+    path: "motorista/cadastro",
+    component: CadMotoristaComponent
+  },
+  {
     path: "cobrador",
     component: CobradorComponent
+  },
+  {
+    path: "cobrador/cadastro",
+    component: CadCobradorComponent
   },
   {
     path: "onibus",

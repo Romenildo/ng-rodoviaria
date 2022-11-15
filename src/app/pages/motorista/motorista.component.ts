@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { MotoristaService } from 'src/app/services/motorista.service';
 
 @Component({
   selector: 'app-motorista',
@@ -7,44 +9,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MotoristaComponent implements OnInit {
 
-  motoristas: any[] = [
-    {
-      id: "1",
-      nome: "Romenildo",
-      sobrenome:"Ferreira",
-      rg:"19.192-01",
-      dataNascimento: "10/10/1021",
-      contato: "(83)984871921",
-      cnh: "182191012912",
-      salario:1200,
-      imagem:"https://st2.depositphotos.com/11742109/48212/v/600/depositphotos_482126926-stock-illustration-gender-neutral-profile-avatar-front.jpg"
-    },
-    {
-      id: "2",
-      nome:"gamer",
-      sobrenome:"Deus",
-      rg:"19.192-01",
-      dataNascimento: "99/99/1029",
-      contato: "(83)984871921",
-      cnh: "182191012912",
-      salario:1200,
-      imagem:"https://st2.depositphotos.com/11742109/48212/v/600/depositphotos_482126926-stock-illustration-gender-neutral-profile-avatar-front.jpg"
-    },
-    {
-      id: "3",
-      nome:"Joao",
-      sobrenome:"kleber",
-      rg:"19.192-01",
-      dataNascimento: "99/99/1029",
-      contato: "(83)984871921",
-      cnh: "182191012912",
-      salario:1200,
-      imagem:"https://st2.depositphotos.com/11742109/48212/v/600/depositphotos_482126926-stock-illustration-gender-neutral-profile-avatar-front.jpg"
-    }
-  ]
-  constructor() { }
+  motoristas: any[] = []
+  public id?: string;
+  public nome?: string;
+
+  constructor(private motoristaService: MotoristaService, private router:Router) { }
 
   ngOnInit(): void {
+    this.toggleEdit('none')
+    //observar
+    this.motoristaService.motoristas$.subscribe(motoristas => this.motoristas = motoristas)
+
+    this.motoristaService.getMotoristas().subscribe(resposta => {
+      this.motoristaService.motoristas$.next(resposta);
+    });
   }
 
+  filtrar() {
+    this.motoristas = this.motoristaService.filtrarMotorista(this.id, this.nome);
+  }
+
+  cadastrar(){
+      this.router.navigate(["motorista","cadastro"]);
+  }
+
+  toggleEdit(tipo: string) {
+    const item = document.getElementById("modalCobradorEdit");
+    if (!item) return;
+    item.style.display = tipo
+  }
 }

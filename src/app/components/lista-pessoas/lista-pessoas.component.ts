@@ -16,10 +16,6 @@ export class ListaPessoasComponent implements OnInit {
     this.toggleEdit('none');
   }
 
-  handleRemover(oe:any) {
-    console.log("Handle Remover");
-    
-  }
   handleEdit(pessoa: any) {
     this.pessoaEdit = pessoa;
     this.toggleEdit('block')
@@ -30,6 +26,7 @@ export class ListaPessoasComponent implements OnInit {
     if (!item) return;
     item.style.display = tipo
   }
+  
   
 
 }

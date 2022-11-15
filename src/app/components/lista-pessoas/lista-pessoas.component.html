@@ -3,7 +3,6 @@
     <app-pessoa [tipo]="tipo"
       *ngFor="let pessoa of pessoas"
       [pessoa]="pessoa"
-      (onRemove)="handleRemover($event)"
       (onEdit)="handleEdit($event)">
     </app-pessoa>
 

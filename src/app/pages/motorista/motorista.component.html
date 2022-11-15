@@ -7,18 +7,18 @@
 
         <div class="filtros">
             <div class="campo">
-                <label for="id">Id:</label>
-                <input type="text">
+                <label for="id" >Id:</label>
+                <input type="text" [(ngModel)]="id" id="id" >
             </div>
             <div class="campo">
                 <label for="nome">Nome:</label>
-                <input type="text">
+                <input type="text" [(ngModel)]="nome" id="nome">
             </div>
         </div>
 
         <div class="botoes">
-            <button type="button" class="btn-filtro">Filtrar</button>
-            <button type="button" class="btn-cadastro" (click)="modal.toggle()">Cadastrar</button>
+            <button type="button" class="btn-filtro" (click)="filtrar()">Filtrar</button>
+            <button type="button" class="btn-cadastro" (click)="cadastrar()">Cadastrar</button>
         </div>
         <p>quant: {{motoristas.length}}</p>
 
@@ -28,8 +28,3 @@
     <app-lista-pessoas class="lista-pessoas" [pessoas]="motoristas" tipo = "motorista"></app-lista-pessoas>
 
 </mat-card>
-
-<app-modal #modal>
-    <app-cad-motorista></app-cad-motorista>
-
-</app-modal>

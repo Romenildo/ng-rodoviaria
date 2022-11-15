@@ -52,9 +52,6 @@ export class CadCobradorComponent implements OnInit {
     return this.cobradorForm.get('salario');
   }
 
-
-
-
   salvar() {
     if (this.cobradorForm.valid) {
       //adicionar foto
@@ -62,8 +59,9 @@ export class CadCobradorComponent implements OnInit {
       this.cobradorService
       .cadastrarCobrador(this.cobradorForm.value)
       .subscribe((res) => {
-        const currentItems = this.cobradorService.cobradores$.getValue();
-        currentItems.push(res);
+        this.router.navigate(["cobrador"]);
+        //const currentItems = this.cobradorService.cobradores$.getValue();
+        //currentItems.push(res);
       }, error => {
         alert("Não foi possível realizar o cadastro.");
       });
@@ -74,8 +72,6 @@ export class CadCobradorComponent implements OnInit {
 
   
   fechar(){
-   const item = document.getElementById("modalCobrador");
-   if (!item) return;
-   item.style.display = 'none'
-  }
+    this.router.navigate(["cobrador"]);
+ }
 }

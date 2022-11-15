@@ -20,7 +20,7 @@ export class EditCobradorComponent implements OnInit {
   ) {
     this.cobradorForm = this.fb.group({
       nome: ['', [Validators.required, Validators.maxLength(20)]],
-      sobrenome: ['', [Validators.required, Validators.maxLength(20)]],
+      sobrenome: ['', [Validators.required, Validators.maxLength(20),Validators.pattern]],
       rg: ['', [Validators.required]],
       dataNascimento: ['', [Validators.required]],
       contato: ['', [Validators.required]],

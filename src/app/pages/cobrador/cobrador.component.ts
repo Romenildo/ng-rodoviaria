@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { CobradorService } from 'src/app/services/cobrador.service';
 
 @Component({
@@ -12,11 +13,10 @@ export class CobradorComponent implements OnInit {
   public id?: string;
   public nome?: string;
 
-  constructor(private cobradorService: CobradorService) { }
+  constructor(private cobradorService: CobradorService, private router: Router) { }
 
   ngOnInit(): void {
-    this.toggle('none')
-    //observar
+    this.toggleEdit('none')
     this.cobradorService.cobradores$.subscribe(cobradores => this.cobradores = cobradores)
 
     this.cobradorService.getCobradores().subscribe(resposta => {
@@ -28,15 +28,15 @@ export class CobradorComponent implements OnInit {
     this.cobradores = this.cobradorService.filtrarCobrador(this.id, this.nome);
   }
 
-  toggle(tipo: string) {
-    const item = document.getElementById("modalCobrador");
+  cadastrar() {
+    this.router.navigate(["cobrador", "cadastro"]);
+  }
+
+  toggleEdit(tipo: string) {
+    const item = document.getElementById("modalCobradorEdit");
     if (!item) return;
     item.style.display = tipo
   }
-
- 
-  
-
 
 
 }
