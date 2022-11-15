@@ -18,18 +18,18 @@ export class PessoaComponent implements OnInit {
   }
 
   remover() {
-    if(this.tipo == "cobrador"){
-      if (this.pessoa != null) {
-        this.cobradorService
-        .removerCobrador(this.pessoa.id)
-        .subscribe(() => {
-          
-        }, error => {
-          alert("Ops! não foi possível remover.");
-        });
-      }
-    }
     
+    if (this.pessoa != null) {
+      this.cobradorService
+      .removerCobrador(this.pessoa.id)
+      .subscribe(() => {
+        const atuais = this.cobradorService.cobradores$.getValue();
+        const deletados = atuais.filter(d => d.id !== this.pessoa.id);
+        this.cobradorService.cobradores$.next(deletados);
+      }, error => {
+        console.log(error)
+      });
+    }
   }
 
   editar(){

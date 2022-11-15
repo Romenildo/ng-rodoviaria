@@ -53,19 +53,29 @@ export class CadCobradorComponent implements OnInit {
   }
 
 
+
+
   salvar() {
     if (this.cobradorForm.valid) {
       //adicionar foto
       //"https://st2.depositphotos.com/11742109/48212/v/600/depositphotos_482126926-stock-illustration-gender-neutral-profile-avatar-front.jpg"
       this.cobradorService
       .cadastrarCobrador(this.cobradorForm.value)
-      .subscribe(() => {
-        //emit para fechar o bagui
+      .subscribe((res) => {
+        const currentItems = this.cobradorService.cobradores$.getValue();
+        currentItems.push(res);
       }, error => {
         alert("Não foi possível realizar o cadastro.");
       });
     } else {
       alert("Verifique os campos obrigatórios!");
     }
+  }
+
+  
+  fechar(){
+   const item = document.getElementById("modalCobrador");
+   if (!item) return;
+   item.style.display = 'none'
   }
 }

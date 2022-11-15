@@ -8,45 +8,25 @@ import { CobradorService } from 'src/app/services/cobrador.service';
 })
 export class CobradorComponent implements OnInit {
 
-  cobradores: any[] = [
-    {
-      id: "1",
-      nome: "Romenildo",
-      sobrenome:"Ferreira",
-      rg:"19.192-01",
-      dataNascimento: "10/10/1021",
-      contato: "(83)984871921",
-      salario:1200,
-      imagem:"https://st2.depositphotos.com/11742109/48212/v/600/depositphotos_482126926-stock-illustration-gender-neutral-profile-avatar-front.jpg"
-    },
-    {
-      id: "2",
-      nome:"gamer",
-      sobrenome:"Deus",
-      rg:"19.192-01",
-      dataNascimento: "99/99/1029",
-      contato: "(83)984871921",
-      salario:1200,
-      imagem:"https://st2.depositphotos.com/11742109/48212/v/600/depositphotos_482126926-stock-illustration-gender-neutral-profile-avatar-front.jpg"
-    },
-    {
-      id: "3",
-      nome:"Joao",
-      sobrenome:"kleber",
-      rg:"19.192-01",
-      dataNascimento: "99/99/1029",
-      contato: "(83)984871921",
-      salario:1200,
-      imagem:"https://st2.depositphotos.com/11742109/48212/v/600/depositphotos_482126926-stock-illustration-gender-neutral-profile-avatar-front.jpg"
-    }
-  ]
+  cobradores: any[] = []
   constructor(private cobradorService: CobradorService) { }
 
   ngOnInit(): void {
+    this.toggle('none')
+    //observar
+    this.cobradorService.cobradores$.subscribe(cobradores => this.cobradores = cobradores)
+
     this.cobradorService.getCobradores().subscribe(resposta => {
-      
-      this.cobradores = resposta;
+      this.cobradorService.cobradores$.next(resposta);
     });
   }
+
+  toggle(tipo:string){
+    const item = document.getElementById("modalCobrador");
+    if (!item) return;
+    item.style.display = tipo
+   }
+
+  
 
 }

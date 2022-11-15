@@ -18,7 +18,7 @@
 
         <div class="botoes">
             <button type="button" class="btn-filtro">Filtrar</button>
-            <button type="button" class="btn-cadastro" (click)="modal.toggle()">Cadastrar</button>
+            <button type="button" class="btn-cadastro" (click)="toggle('block')">Cadastrar</button>
         </div>
         <p>quant: {{cobradores.length}}</p>
 
@@ -29,7 +29,7 @@
 
 </mat-card>
 
-<app-modal #modal>
+<app-modal #modal id="modalCobrador">
     <app-cad-cobrador></app-cad-cobrador>
 
 </app-modal>
