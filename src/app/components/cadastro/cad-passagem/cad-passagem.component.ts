@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { PassagemService } from 'src/app/services/passagem.service';
 
 @Component({
   selector: 'app-cad-passagem',
@@ -14,14 +15,15 @@ export class CadPassagemComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private passagemService:PassagemService
   ) {
     this.passagemForm = this.fb.group({
       destinoSaida: ['', [Validators.required, Validators.maxLength(20)]],
       destinoChegada: ['', [Validators.required, Validators.maxLength(20)]],
       horarioSaida: ['', [Validators.required]],
       horarioChegada: ['', [Validators.required]],
-      preco: ['', [Validators.required]],
+      precoPassagem: ['', [Validators.required]],
     })
   }
 
@@ -36,19 +38,28 @@ export class CadPassagemComponent implements OnInit {
   get horarioSaida() {
     return this.passagemForm.get('horarioSaida');
   }
-  get preco() {
-    return this.passagemForm.get('preco');
+  get horarioChegada() {
+    return this.passagemForm.get('horarioChegada');
+  }
+  get precoPassagem() {
+    return this.passagemForm.get('precoPassagem');
   }
 
   salvar() {
 
+    if (this.passagemForm.valid) {
+      this.passagemService
+      .cadastrarPassagem(this.passagemForm.value)
+      .subscribe((res) => {
+        const currentItems = this.passagemService.passagens$.getValue();
+        currentItems.push(res);
+      }, error => {
+        alert("Não foi possível realizar o cadastro.");
+      });
+    } else {
+      alert("Verifique os campos obrigatórios!");
+    }
+
   }
   
-  VoltarPassagens() {
-    this.router.navigate(["passagem"]);
-  }
-
-  FinalizarCompra() {
-    this.router.navigate(["passagem","passagem","finalizado"]);
-  }
 }

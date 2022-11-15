@@ -1,7 +1,8 @@
-<div class="passagem" (click)="cadastrarPassageiro()">
+<div class="passagem" >
 
-    <p>Rota id: {{passagem.id}}</p>
     <div class="conteudo">
+        <button type="button" class="btn-icon" (click)="remover()"><em class="material-icons">delete</em>
+        </button>
         <div class="local-hora">
             <p> {{passagem.destinoSaida}}</p>
             <p> {{passagem.horarioSaida}}</p>
@@ -20,8 +21,7 @@
                 <label for="preco">R$ {{passagem.precoPassagem}}</label>
             </div>
             
-            
-            <em  class="material-icons">
+            <em  class="material-icons" (click)="cadastrarPassageiro()">
                 arrow_forward_ios
             </em>
         </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { PassageiroService } from 'src/app/services/passageiro.service';
 
 @Component({
   selector: 'app-cad-passageiro',
@@ -9,21 +10,24 @@ import { Router } from '@angular/router';
 })
 export class CadPassageiroComponent implements OnInit {
 
- 
   passageiroForm: FormGroup;
+  idPassagem = ''
 
   constructor(
     private fb: FormBuilder,
-    private router: Router
+    private routerA: ActivatedRoute,
+    private router: Router,
+    private passageiroService:PassageiroService
   ) {
     this.passageiroForm = this.fb.group({
       nome: ['', [Validators.required, Validators.maxLength(20)]],
       sobrenome: ['', [Validators.required, Validators.maxLength(20)]],
       rg: ['', [Validators.required]],
       dataNascimento: ['', [Validators.required]],
+      contato: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       seguro: [true],
-      TippTarifa: [false]
+      tipoTarifa: [false]
     })
   }
 
@@ -53,13 +57,31 @@ export class CadPassageiroComponent implements OnInit {
 
 
   salvar() {
+    if (this.passageiroForm.valid) {
 
+      if(this.passageiroForm.value.tipoTarifa){
+        this.passageiroForm.value.tipoTarifa = 2
+      }else{
+        this.passageiroForm.value.tipoTarifa = 1
+      }
+      console.log(this.passageiroForm.value)
+      this.passageiroService
+      .cadastrarPassageiro(this.passageiroForm.value)
+      .subscribe((res:any) => {
+        console.log(res)
+        this.routerA.params.subscribe(p=>this.idPassagem = p['idPassagem'])
+        this.router.navigate(["passagem",this.idPassagem,"passageiro",res.nome+res.sobrenome,"finalizado"]);
+      }, error => {
+        alert("Não foi possível realizar o cadastro.");
+      });
+    } else {
+      alert("Verifique os campos obrigatórios!");
+    }
   }
   VoltarPassagens() {
     this.router.navigate(["passagem"]);
   }
 
-  FinalizarCompra() {
-    this.router.navigate(["passagem","passageiro","finalizado"]);
-  }
+ 
+  
 }

@@ -40,11 +40,11 @@ const routes: Routes = [
     component: PassagemComponent
   },
   {
-    path: "passagem/passageiro",
+    path: "passagem/:idPassagem/passageiro",
     component: PassageiroComponent
   },
   {
-    path: "passagem/passageiro/finalizado",
+    path: "passagem/:idPassagem/passageiro/:nomeSobrenome/finalizado",
     component: FinalizadoComponent
   },
 ];

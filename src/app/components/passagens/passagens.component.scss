@@ -18,6 +18,23 @@
         gap: 30px;
         padding-left: 100px;
         color: var(--escura);
+        padding-top: 12px;
+
+        .btn-icon{
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 0px 1px;
+            text-transform: uppercase;
+            transition: all .2s;
+            position: absolute;
+            left: 60px;
+            margin-top: 5px;
+            &:hover {
+                opacity: 0.8;
+                cursor: pointer;
+            }
+          }
 
         .local-hora{
             text-align: center;
@@ -38,8 +55,16 @@
             gap: 90px;
             font-weight: 700;
             em{
-                padding-left: auto;
+                position: absolute;
+                margin-top: 6px;
+                margin-left: 140px;
+                &:hover{
+                    color: blue;
+                    
+                    cursor: pointer;
+                }
             }
+
         }
 
         

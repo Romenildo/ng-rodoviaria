@@ -28,24 +28,24 @@
             </p>
           </div>
           <div class="campo">
-            <label for="horarioSaida">Horario Chegada:</label>
-            <input type="text" id="horarioSaida" formControlName="horarioSaida">
-            <p *ngIf="!horarioSaida?.valid && (horarioSaida?.dirty || horarioSaida?.touched)" class="error">
+            <label for="horarioChegada">Horario Chegada:</label>
+            <input type="text" id="horarioChegada" formControlName="horarioChegada">
+            <p *ngIf="!horarioChegada?.valid && (horarioChegada?.dirty || horarioChegada?.touched)" class="error">
               Campo obrigatório
             </p>
           </div>
         </div>
     
         <div class="campo">
-          <label for="preco">preco:</label>
-          <input type="text" id="preco" formControlName="preco">
-          <p *ngIf="!preco?.valid && (preco?.dirty || preco?.touched)" class="error">
+          <label for="precoPassagem">Preco:</label>
+          <input type="text" id="precoPassagem" formControlName="precoPassagem">
+          <p *ngIf="!precoPassagem?.valid && (precoPassagem?.dirty || precoPassagem?.touched)" class="error">
             Campo obrigatório
           </p>
         </div>
     
         <div class="acoes">
-          <button type="submit" class="btn-filtro" (click)="FinalizarCompra()">Cadastrar Passagem</button>
+          <button type="submit" class="btn-filtro" >Cadastrar Passagem</button>
         </div>
       </form>
     

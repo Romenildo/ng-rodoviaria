@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { PassagemService } from 'src/app/services/passagem.service';
 
 @Component({
   selector: 'app-passagens',
@@ -9,12 +10,26 @@ import { Router } from '@angular/router';
 export class PassagensComponent implements OnInit {
 
   @Input() passagem?: any;
-  constructor(private router: Router) { }
+  constructor(private router: Router, private passagemService:PassagemService) { }
 
   ngOnInit(): void {
   }
 
   cadastrarPassageiro() {
-    this.router.navigate(["passagem","passageiro"]);
+    this.router.navigate(["passagem",this.passagem.id,"passageiro"]);
+  }
+
+  remover(){
+    if (this.passagem != null) {
+      this.passagemService
+      .removerPassagem(this.passagem.id)
+      .subscribe(() => {
+        const atuais = this.passagemService.passagens$.getValue();
+        const deletados = atuais.filter(d => d.id !== this.passagem.id);
+        this.passagemService.passagens$.next(deletados);
+      }, error => {
+        console.log(error)
+      });
+    }
   }
 }
