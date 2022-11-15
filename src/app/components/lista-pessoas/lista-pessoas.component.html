@@ -3,11 +3,16 @@
     <app-pessoa [tipo]="tipo"
       *ngFor="let pessoa of pessoas"
       [pessoa]="pessoa"
-      (onRemove)="handleRemover($event)">
+      (onRemove)="handleRemover($event)"
+      (onEdit)="handleEdit($event)">
     </app-pessoa>
 
     <div class="vazio" *ngIf="pessoas?.length == 0">
         Lista Vazia
     </div>
+
+    <app-modal #modal id="modalCobradorEdit">
+      <app-edit-cobrador [cobrador]="pessoaEdit"></app-edit-cobrador>
+    </app-modal>
     
   </div>

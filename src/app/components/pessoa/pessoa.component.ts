@@ -10,11 +10,15 @@ export class PessoaComponent implements OnInit {
 
   @Input() pessoa?: any;
   @Input() tipo?: any;
+  @Output() pessoaEdit?: any;
 
   @Output('onRemove') removeEmitter: EventEmitter<any> = new EventEmitter();
+  @Output('onEdit') editEmitter: EventEmitter<any> = new EventEmitter();
+
   constructor(private cobradorService:CobradorService) { }
 
   ngOnInit(): void {
+    
   }
 
   remover() {
@@ -33,7 +37,8 @@ export class PessoaComponent implements OnInit {
   }
 
   editar(){
-    
+    this.editEmitter.emit(this.pessoa);
   }
+
 
 }

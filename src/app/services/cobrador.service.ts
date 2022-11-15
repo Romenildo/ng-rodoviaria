@@ -23,6 +23,10 @@ export class CobradorService {
   removerCobrador(id: number) {
     return this.http.delete(`${environment.API_URL}/Cobrador/${id}`);
   }
+  atualizarCobrador(id: number, cobrador:any){
+
+    return this.http.put(`${environment.API_URL}/Cobrador/${id}`, cobrador);
+  }
 
   filtrarCobrador(id?:string, nome?:string) {
     let novosCobradores: any[] = [...this.cobradores$.getValue()];

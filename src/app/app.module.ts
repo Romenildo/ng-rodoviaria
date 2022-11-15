@@ -31,6 +31,7 @@ import { FinalizadoComponent } from './pages/finalizado/finalizado.component';
 import { CadPassagemComponent } from './components/cadastro/cad-passagem/cad-passagem.component';
 import { CadOnibusComponent } from './components/cadastro/cad-onibus/cad-onibus.component';
 import { ListaOnibusComponent } from './components/lista-onibus/lista-onibus.component';
+import { EditCobradorComponent } from './components/editar/edit-cobrador/edit-cobrador.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { ListaOnibusComponent } from './components/lista-onibus/lista-onibus.com
     FinalizadoComponent,
     CadPassagemComponent,
     CadOnibusComponent,
-    ListaOnibusComponent 
+    ListaOnibusComponent,
+    EditCobradorComponent 
   ],
   imports: [
     BrowserModule,

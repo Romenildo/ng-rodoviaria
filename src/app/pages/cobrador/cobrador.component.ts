@@ -34,6 +34,9 @@ export class CobradorComponent implements OnInit {
     item.style.display = tipo
   }
 
+ 
+  
+
 
 
 }
