@@ -23,4 +23,25 @@ export class CobradorService {
   removerCobrador(id: number) {
     return this.http.delete(`${environment.API_URL}/Cobrador/${id}`);
   }
+
+  filtrarCobrador(id?:string, nome?:string) {
+    let novosCobradores: any[] = [...this.cobradores$.getValue()];
+    
+    if(nome !== undefined){
+      novosCobradores = novosCobradores.filter((element) => {
+        if (element.nome.toUpperCase().includes(nome?.toUpperCase())) {
+          return element;
+        }
+      });
+    }
+    if(id !== undefined){
+      novosCobradores = novosCobradores.filter((element) => {
+        if (element.id.includes(id)) {
+          return element;
+        }
+      });
+    }
+    
+    return novosCobradores;
+  }
 }

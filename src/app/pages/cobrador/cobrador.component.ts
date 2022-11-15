@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { CobradorService } from 'src/app/services/cobrador.service';
 
 @Component({
@@ -9,6 +9,9 @@ import { CobradorService } from 'src/app/services/cobrador.service';
 export class CobradorComponent implements OnInit {
 
   cobradores: any[] = []
+  public id?: string;
+  public nome?: string;
+
   constructor(private cobradorService: CobradorService) { }
 
   ngOnInit(): void {
@@ -21,12 +24,16 @@ export class CobradorComponent implements OnInit {
     });
   }
 
-  toggle(tipo:string){
+  filtrar() {
+    this.cobradores = this.cobradorService.filtrarCobrador(this.id, this.nome);
+  }
+
+  toggle(tipo: string) {
     const item = document.getElementById("modalCobrador");
     if (!item) return;
     item.style.display = tipo
-   }
+  }
 
-  
+
 
 }

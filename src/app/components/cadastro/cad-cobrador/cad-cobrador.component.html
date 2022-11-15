@@ -1,5 +1,5 @@
 <div class="container">
-    <h2> CADASTRAR COBRADOR</h2>
+    <h2> CADASTRAR NOVO COBRADOR</h2>
     <form [formGroup]="cobradorForm" (ngSubmit)="salvar()">
   
       <div class="campos" >
@@ -61,7 +61,7 @@
       
       <div class="acoes">
         <button class="btn-cadastro" type="button" (click)="fechar()">Voltar</button>
-        <button type="submit" class="btn-filtro">Salvar</button>
+        <button type="submit" class="btn-filtro" (click)="fechar()">Salvar</button>
       </div>
     </form>
   </div>

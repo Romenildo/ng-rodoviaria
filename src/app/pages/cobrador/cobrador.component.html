@@ -8,16 +8,16 @@
         <div class="filtros">
             <div class="campo">
                 <label for="id">Id:</label>
-                <input type="text">
+                <input type="text" [(ngModel)]="id" id="id" >
             </div>
             <div class="campo">
                 <label for="nome">Nome:</label>
-                <input type="text">
+                <input type="text" [(ngModel)]="nome" id="nome" >
             </div>
         </div>
 
         <div class="botoes">
-            <button type="button" class="btn-filtro">Filtrar</button>
+            <button type="button" class="btn-filtro" (click)="filtrar()">Filtrar</button>
             <button type="button" class="btn-cadastro" (click)="toggle('block')">Cadastrar</button>
         </div>
         <p>quant: {{cobradores.length}}</p>
@@ -31,5 +31,4 @@
 
 <app-modal #modal id="modalCobrador">
     <app-cad-cobrador></app-cad-cobrador>
-
 </app-modal>
