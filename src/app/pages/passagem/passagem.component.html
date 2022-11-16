@@ -3,18 +3,15 @@
     <div class="conteudo">
         <div class="titulo">
             <span>Passagens</span>
-        </div>     
-        
+        </div>
+
     </div>
 
     <app-cad-passagem></app-cad-passagem>
-    
+
     <p>quant: {{passagens.length}}</p>
-    
-    <app-passagens
-    *ngFor="let passagem of passagens"
-    [passagem]="passagem"
-    >
+
+    <app-passagens *ngFor="let passagem of passagens" [passagem]="passagem">
     </app-passagens>
 
 </mat-card>

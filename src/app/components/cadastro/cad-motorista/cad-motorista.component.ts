@@ -15,7 +15,7 @@ export class CadMotoristaComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private motoristaService:MotoristaService
+    private motoristaService: MotoristaService
   ) {
     this.motoristaForm = this.fb.group({
       nome: ['', [Validators.required, Validators.maxLength(20)]],
@@ -25,7 +25,7 @@ export class CadMotoristaComponent implements OnInit {
       cnh: ['', [Validators.required]],
       contato: ['', [Validators.required]],
       salario: ['', [Validators.required]],
-      imagem: [''],
+      imagem: [null],
 
     })
   }
@@ -57,24 +57,24 @@ export class CadMotoristaComponent implements OnInit {
 
   salvar() {
     if (this.motoristaForm.valid) {
-      
-      if(this.motoristaForm.value.imagem == null){
+
+      if (this.motoristaForm.value.imagem == null) {
         this.motoristaForm.value.imagem = "https://st2.depositphotos.com/11742109/48212/v/600/depositphotos_482126926-stock-illustration-gender-neutral-profile-avatar-front.jpg"
       }
 
       this.motoristaService
-      .cadastrarMotorista(this.motoristaForm.value)
-      .subscribe((res) => {
-        this.router.navigate(["motorista"]);
-      }, error => {
-        alert("Não foi possível realizar o cadastro.");
-      });
+        .cadastrarMotorista(this.motoristaForm.value)
+        .subscribe((res) => {
+          this.router.navigate(["motorista"]);
+        }, error => {
+          alert("Não foi possível realizar o cadastro: "+ error);
+        });
     } else {
       alert("Verifique os campos obrigatórios!");
     }
   }
 
-  fechar(){
-      this.router.navigate(["motorista"]);
-   }
+  fechar() {
+    this.router.navigate(["motorista"]);
+  }
 }

@@ -11,26 +11,26 @@ import { PassagemService } from 'src/app/services/passagem.service';
 export class PassagensComponent implements OnInit {
 
   @Input() passagem?: Passagem;
-  constructor(private router: Router, private passagemService:PassagemService) { }
+  constructor(private router: Router, private passagemService: PassagemService) { }
 
   ngOnInit(): void {
   }
 
   cadastrarPassageiro() {
-    this.router.navigate(["passagem",this.passagem?.id,"passageiro"]);
+    this.router.navigate(["passagem", this.passagem?.id, "passageiro"]);
   }
 
-  remover(){
+  remover() {
     if (this.passagem != null) {
       this.passagemService
-      .removerPassagem(this.passagem?.id)
-      .subscribe(() => {
-        const atuais = this.passagemService.passagens$.getValue();
-        const deletados = atuais.filter(d => d.id !== this.passagem?.id);
-        this.passagemService.passagens$.next(deletados);
-      }, error => {
-        console.log(error)
-      });
+        .removerPassagem(this.passagem?.id)
+        .subscribe(() => {
+          const atuais = this.passagemService.passagens$.getValue();
+          const deletados = atuais.filter(d => d.id !== this.passagem?.id);
+          this.passagemService.passagens$.next(deletados);
+        }, error => {
+          console.log(error)
+        });
     }
   }
 }

@@ -1,79 +1,79 @@
 <div class="container">
-    <h2> EDITAR MOTORISTA:</h2>
-    <form [formGroup]="motoristaForm"  (ngSubmit)="atualizar()">
-  
-      <div class="campos" >
-        <div class="campo">
-          <label for="nome">nome:</label>
-          <input type="text" id="nome" formControlName="nome">
-          <p *ngIf="!nome?.valid && (nome?.dirty || nome?.touched)" class="error">
-            Campo obrigatório
-          </p>
-        </div>
-        <div class="campo">
-          <label for="sobrenome">sobrenome:</label>
-          <input type="text" id="sobrenome" formControlName="sobrenome">
-          <p *ngIf="!sobrenome?.valid && (sobrenome?.dirty || sobrenome?.touched)" class="error">
-            Campo obrigatório
-          </p>
-        </div>
-      </div>
-    
-      <div class="campos" >
-        <div class="campo">
-          <label for="rg">Rg:</label>
-          <input type="text" id="rg" formControlName="rg">
-          <p *ngIf="!rg?.valid && (rg?.dirty || rg?.touched)" class="error">
-            Campo obrigatório
-          </p>
-        </div>
-        <div class="campo">
-          <label for="dataNascimento">data nascimento:</label>
-          <input type="text" id="dataNascimento" formControlName="dataNascimento">
-          <p *ngIf="!dataNascimento?.valid && (dataNascimento?.dirty || dataNascimento?.touched)" class="error">
-            Campo obrigatório
-          </p>
-        </div>
-      </div>
-  
-      <div class="campos" >
-        <div class="campo">
-            <label for="cnh">Cnh:</label>
-            <input type="text" id="cnh" formControlName="cnh">
-            <p *ngIf="!cnh?.valid && (cnh?.dirty || cnh?.touched)" class="error">
-              Campo obrigatório
-            </p>
-          </div>
-        <div class="campo">
-            <label for="contato">contato</label>
-            <input type="text" id="contato" formControlName="contato">
-            <p *ngIf="!contato?.valid && (contato?.dirty || contato?.touched)" class="error">
-              Campo obrigatório
-            </p>
-          </div>
-      </div>
-      
-  
-      <div class="campos" style="display: flex;">
-        <div class="campo">
-          <label for="salario">Salario:</label>
-          <input type="text" id="salario" formControlName="salario">
-          <p *ngIf="!salario?.valid && (salario?.dirty || salario?.touched)" class="error">
-            Campo obrigatório
-          </p>
-        </div>
-      </div>
-  
-      <div class="campo">
-        <label for="imagem">Imagem</label>
-        <input type="text" id="imagem" formControlName="imagem">
-      </div>
-      
-      <div class="acoes">
-        <button class="btn-cadastro" type="button" (click)="updateForm()">Usar atual</button>
+  <h2> EDITAR MOTORISTA:</h2>
+  <form [formGroup]="motoristaForm" (ngSubmit)="atualizar()">
 
-        <button class="btn-cadastro" type="button" (click)="toggleEdit('none')">Voltar</button>
-        <button type="submit" class="btn-filtro" >Salvar</button>
+    <div class="campos">
+      <div class="campo">
+        <label for="nome">nome:</label>
+        <input type="text" id="nome" formControlName="nome">
+        <p *ngIf="!nome?.valid && (nome?.dirty || nome?.touched)" class="error">
+          Campo obrigatório
+        </p>
       </div>
-    </form>
-  </div>
+      <div class="campo">
+        <label for="sobrenome">sobrenome:</label>
+        <input type="text" id="sobrenome" formControlName="sobrenome">
+        <p *ngIf="!sobrenome?.valid && (sobrenome?.dirty || sobrenome?.touched)" class="error">
+          Campo obrigatório
+        </p>
+      </div>
+    </div>
+
+    <div class="campos">
+      <div class="campo">
+        <label for="rg">Rg:</label>
+        <input type="text" id="rg" formControlName="rg">
+        <p *ngIf="!rg?.valid && (rg?.dirty || rg?.touched)" class="error">
+          Campo obrigatório
+        </p>
+      </div>
+      <div class="campo">
+        <label for="dataNascimento">data nascimento:</label>
+        <input type="text" id="dataNascimento" formControlName="dataNascimento">
+        <p *ngIf="!dataNascimento?.valid && (dataNascimento?.dirty || dataNascimento?.touched)" class="error">
+          Campo obrigatório
+        </p>
+      </div>
+    </div>
+
+    <div class="campos">
+      <div class="campo">
+        <label for="cnh">Cnh:</label>
+        <input type="text" id="cnh" formControlName="cnh">
+        <p *ngIf="!cnh?.valid && (cnh?.dirty || cnh?.touched)" class="error">
+          Campo obrigatório
+        </p>
+      </div>
+      <div class="campo">
+        <label for="contato">contato</label>
+        <input type="text" id="contato" formControlName="contato">
+        <p *ngIf="!contato?.valid && (contato?.dirty || contato?.touched)" class="error">
+          Campo obrigatório
+        </p>
+      </div>
+    </div>
+
+
+    <div class="campos" style="display: flex;">
+      <div class="campo">
+        <label for="salario">Salario:</label>
+        <input type="text" id="salario" formControlName="salario">
+        <p *ngIf="!salario?.valid && (salario?.dirty || salario?.touched)" class="error">
+          Campo obrigatório
+        </p>
+      </div>
+    </div>
+
+    <div class="campo">
+      <label for="imagem">Imagem</label>
+      <input type="text" id="imagem" formControlName="imagem">
+    </div>
+
+    <div class="acoes">
+      <button class="btn-cadastro" type="button" (click)="updateForm()">Usar atual</button>
+
+      <button class="btn-cadastro" type="button" (click)="toggleEdit('none')">Voltar</button>
+      <button type="submit" class="btn-filtro">Salvar</button>
+    </div>
+  </form>
+</div>

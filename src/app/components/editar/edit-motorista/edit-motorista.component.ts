@@ -9,7 +9,7 @@ import { MotoristaService } from 'src/app/services/motorista.service';
   styleUrls: ['./edit-motorista.component.scss']
 })
 export class EditMotoristaComponent implements OnInit {
-  @Input() motorista:any;
+  @Input() motorista: any;
   motoristaForm: FormGroup;
 
   constructor(
@@ -19,7 +19,7 @@ export class EditMotoristaComponent implements OnInit {
   ) {
     this.motoristaForm = this.fb.group({
       nome: ['', [Validators.required, Validators.maxLength(20)]],
-      sobrenome: ['', [Validators.required, Validators.maxLength(20),Validators.pattern]],
+      sobrenome: ['', [Validators.required, Validators.maxLength(20), Validators.pattern]],
       rg: ['', [Validators.required]],
       dataNascimento: ['', [Validators.required]],
       cnh: ['', [Validators.required]],
@@ -56,27 +56,27 @@ export class EditMotoristaComponent implements OnInit {
   atualizar() {
     if (this.motoristaForm.valid) {
       this.motoristaService.atualizarMotorista(this.motorista.id, this.motoristaForm.value)
-      .subscribe((res) => {
-        const currentItems = this.motoristaService.motoristas$.getValue();
-        const itemUpdate:any = currentItems.find(d => d.id == this.motorista.id)
-        itemUpdate.nome = this.motoristaForm.value.nome;
-        itemUpdate.sobrenome = this.motoristaForm.value.sobrenome;
-        itemUpdate.rg = this.motoristaForm.value.rg;
-        itemUpdate.dataNascimento = this.motoristaForm.value.dataNascimento;
-        itemUpdate.contato = this.motoristaForm.value.contato;
-        itemUpdate.cnh = this.motoristaForm.value.cnh;
-        itemUpdate.salario = this.motoristaForm.value.salario;
-        itemUpdate.imagem = this.motoristaForm.value.imagem;
-      }, error => {
-        alert("Não foi possível Atualizar.");
-      });
+        .subscribe((res) => {
+          const currentItems = this.motoristaService.motoristas$.getValue();
+          const itemUpdate: any = currentItems.find(d => d.id == this.motorista.id)
+          itemUpdate.nome = this.motoristaForm.value.nome;
+          itemUpdate.sobrenome = this.motoristaForm.value.sobrenome;
+          itemUpdate.rg = this.motoristaForm.value.rg;
+          itemUpdate.dataNascimento = this.motoristaForm.value.dataNascimento;
+          itemUpdate.contato = this.motoristaForm.value.contato;
+          itemUpdate.cnh = this.motoristaForm.value.cnh;
+          itemUpdate.salario = this.motoristaForm.value.salario;
+          itemUpdate.imagem = this.motoristaForm.value.imagem;
+        }, error => {
+          alert("Não foi possível Atualizar.");
+        });
     } else {
       alert("Verifique os campos obrigatórios!");
     }
     this.toggleEdit('none')
   }
-  
-  updateForm(){
+
+  updateForm() {
     this.motoristaForm = this.fb.group({
       nome: [this.motorista.nome, [Validators.required, Validators.maxLength(20)]],
       sobrenome: [this.motorista.sobrenome, [Validators.required, Validators.maxLength(20)]],
@@ -89,7 +89,6 @@ export class EditMotoristaComponent implements OnInit {
     })
   }
 
-  
   toggleEdit(tipo: string) {
     const item = document.getElementById("modalMotoristaEdit");
     console.log(item)

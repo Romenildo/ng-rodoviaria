@@ -1,21 +1,22 @@
 <div class="pessoas">
 
-    <app-pessoa [tipo]="tipo"
-      *ngFor="let pessoa of pessoas"
-      [pessoa]="pessoa"
+  <app-pessoa
+   [tipo]="tipoPessoa"
+    *ngFor="let pessoa of pessoas"
+     [pessoa]="pessoa"
       (onEdit)="handleEdit($event)">
-    </app-pessoa>
+  </app-pessoa>
 
-    <div class="vazio" *ngIf="pessoas?.length == 0">
-        Lista Vazia
-    </div>
-
-    <app-modal #modal id="modalCobradorEdit">
-      <app-edit-cobrador [cobrador]="pessoaEdit"></app-edit-cobrador>
-    </app-modal>
-
-    <app-modal #modalMotorista id="modalMotoristaEdit">
-      <app-edit-motorista [motorista]="pessoaEdit"></app-edit-motorista>
-    </app-modal>
-    
+  <div class="vazio" *ngIf="pessoas?.length == 0">
+    <h2>Lista Vazia</h2>
   </div>
+
+  <app-modal id="modalCobradorEdit" style="display: none;">
+    <app-edit-cobrador [cobrador]="pessoaEdit"></app-edit-cobrador>
+  </app-modal>
+
+  <app-modal id="modalMotoristaEdit" style="display: none;">
+    <app-edit-motorista [motorista]="pessoaEdit"></app-edit-motorista>
+  </app-modal>
+
+</div>

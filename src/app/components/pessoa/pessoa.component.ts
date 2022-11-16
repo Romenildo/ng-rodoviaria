@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Cobrador } from 'src/app/models/cobrador';
 import { Motorista } from 'src/app/models/motorista';
-import { Pessoa } from 'src/app/models/Pessoa';
 import { CobradorService } from 'src/app/services/cobrador.service';
 import { MotoristaService } from 'src/app/services/motorista.service';
 
@@ -12,9 +11,9 @@ import { MotoristaService } from 'src/app/services/motorista.service';
 })
 export class PessoaComponent implements OnInit {
 
-  @Input() pessoa?: Pessoa | Cobrador | Motorista | any;
+  @Input() pessoa?: Cobrador | Motorista | any;
   @Input() tipo?: string;
-  @Output() pessoaEdit?: Pessoa;
+  @Output() pessoaEdit?: Cobrador | Motorista;
 
   @Output('onEdit') editEmitter: EventEmitter<any> = new EventEmitter();
 
@@ -55,7 +54,25 @@ export class PessoaComponent implements OnInit {
   }
 
   editar(){
+    if(this.tipo == 'cobrador'){
+      console.log('foi')
+      this.toggleEdit('block')
+    }else{
+      this.toggleEditMotorista('block')
+    }
     this.editEmitter.emit(this.pessoa);
+    
+  }
+
+  toggleEdit(tipo: string) {
+    const item = document.getElementById("modalCobradorEdit");
+    if (!item) return;
+    item.style.display = tipo
+  }
+  toggleEditMotorista(tipo: string) {
+    const item = document.getElementById("modalMotoristaEdit");
+    if (!item) return;
+    item.style.display = tipo
   }
 
 

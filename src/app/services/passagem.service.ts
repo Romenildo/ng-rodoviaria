@@ -16,6 +16,10 @@ export class PassagemService {
   getPassagens(): Observable<Passagem> {
     return this.http.get<Passagem>(`${environment.API_URL}/Passagem`);
   }
+  
+  getPassagem(id: string): Observable<Passagem> {
+    return this.http.get<Passagem>(`${environment.API_URL}/Passagem/${id}`);
+  }
 
   cadastrarPassagem(passagem: Passagem) {
     return this.http.post(`${environment.API_URL}/Passagem`, passagem);
@@ -24,8 +28,8 @@ export class PassagemService {
   removerPassagem(id: string) {
     return this.http.delete(`${environment.API_URL}/Passagem/${id}`);
   }
-  
-  atualizarPassagem(id: string, passagem:Passagem){
+
+  atualizarPassagem(id: string, passagem: Passagem) {
     return this.http.put(`${environment.API_URL}/Passagem/${id}`, passagem);
   }
 }

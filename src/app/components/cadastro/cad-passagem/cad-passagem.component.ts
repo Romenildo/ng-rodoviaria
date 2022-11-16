@@ -15,7 +15,7 @@ export class CadPassagemComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private passagemService:PassagemService
+    private passagemService: PassagemService
   ) {
     this.passagemForm = this.fb.group({
       destinoSaida: ['', [Validators.required, Validators.maxLength(20)]],
@@ -48,17 +48,17 @@ export class CadPassagemComponent implements OnInit {
 
     if (this.passagemForm.valid) {
       this.passagemService
-      .cadastrarPassagem(this.passagemForm.value)
-      .subscribe((res:any) => {
-        const currentItems = this.passagemService.passagens$.getValue();
-        currentItems.push(res);
-      }, error => {
-        alert("Não foi possível realizar o cadastro.");
-      });
+        .cadastrarPassagem(this.passagemForm.value)
+        .subscribe((res: any) => {
+          const currentItems = this.passagemService.passagens$.getValue();
+          currentItems.push(res);
+        }, error => {
+          alert("Não foi possível realizar o cadastro.");
+        });
     } else {
       alert("Verifique os campos obrigatórios!");
     }
 
   }
-  
+
 }

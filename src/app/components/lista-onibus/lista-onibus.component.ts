@@ -16,51 +16,53 @@ import { PassagemService } from 'src/app/services/passagem.service';
 export class ListaOnibusComponent implements OnInit {
 
   @Input() onibus: any;
-  cobradores:Cobrador[] = []
-  motoristas:Motorista[] = []
-  passagens:Passagem[] = []
+  cobradores: Cobrador[] = []
+  motoristas: Motorista[] = []
+  passagens: Passagem[] = []
 
-  mostrarCobradores:boolean = false;
-  mostrarMotoristas:boolean = false;
-  mostrarPassagens:boolean = false;
+  mostrarCobradores: boolean = false;
+  mostrarMotoristas: boolean = false;
+  mostrarPassagens: boolean = false;
 
   constructor(
-    private cobradorService:CobradorService,
-    private onibusService:OnibusService,
-    private motoristaService:MotoristaService,
-    private passagemService:PassagemService
-
+    private cobradorService: CobradorService,
+    private onibusService: OnibusService,
+    private motoristaService: MotoristaService,
+    private passagemService: PassagemService
   ) { }
 
   ngOnInit(): void {
-    this.cobradorService.cobradores$.subscribe(cobradores => this.cobradores = cobradores.filter(x=>x.onibus == null))
-    this.motoristaService.motoristas$.subscribe(motoristas => this.motoristas = motoristas.filter(x=>x.onibus == null))
+    this.cobradorService.cobradores$.subscribe(cobradores => this.cobradores = cobradores.filter(x => x.onibus == null))
+    this.motoristaService.motoristas$.subscribe(motoristas => this.motoristas = motoristas.filter(x => x.onibus == null))
     this.passagemService.passagens$.subscribe(passagens => this.passagens = passagens)
   }
 
-  adicionarCobrador(){
+  adicionarCobrador() {
     this.mostrarCobradores = true
   }
-  adicionarMotorista(){
+  adicionarMotorista() {
     this.mostrarMotoristas = true
   }
-  adicionarPassagem(){
+  adicionarPassagem() {
     this.mostrarPassagens = true
   }
 
-  vincularCobrador(cobrador:any){
+  vincularCobrador(cobrador: any) {
     this.mostrarCobradores = false
-    this.onibusService.vincularCobrador(this.onibus.id, cobrador.nome+cobrador.sobrenome).subscribe()
-
+    this.onibusService.vincularCobrador(this.onibus.id, cobrador.nome + cobrador.sobrenome).subscribe((res: any) => {
+      this.onibus.cobrador = res.body.cobrador
+    })
   }
-  vincularMotorista(motorista:any){
+
+  vincularMotorista(motorista: any) {
     this.mostrarMotoristas = false
-    this.onibusService.vincularMotorista(this.onibus.id, motorista.nome+motorista.sobrenome).subscribe()
+    this.onibusService.vincularMotorista(this.onibus.id, motorista.nome + motorista.sobrenome).subscribe((res: any) => {
+      this.onibus.motorista = res.body.motorista
+    })
   }
-  vincularPassagem(passagem:any){
+  vincularPassagem(passagem: any) {
     this.mostrarPassagens = false
-    this.onibusService.vincularPassagem(this.onibus.id, passagem.id).subscribe()
-
+    this.onibusService.vincularPassagem(this.onibus.id, passagem.id).subscribe((res: any) => this.onibus.passagem = res.body.passagem)
   }
 
 }

@@ -11,14 +11,12 @@ import { CobradorService } from 'src/app/services/cobrador.service';
 export class CobradorComponent implements OnInit {
 
   cobradores: Cobrador[] = []
-  public id?: string;
-  public nome?: string;
+  id?: string;
+  nome?: string;
 
   constructor(private cobradorService: CobradorService, private router: Router) { }
 
   ngOnInit(): void {
-    this.toggleEdit('none')
-    this.toggleEditMotorista('none')
     this.cobradorService.cobradores$.subscribe(cobradores => this.cobradores = cobradores)
 
     this.cobradorService.getCobradores().subscribe(resposta => {
@@ -33,16 +31,4 @@ export class CobradorComponent implements OnInit {
   cadastrar() {
     this.router.navigate(["cobrador", "cadastro"]);
   }
-
-  toggleEdit(tipo: string) {
-    const item = document.getElementById("modalCobradorEdit");
-    if (!item) return;
-    item.style.display = tipo
-  }
-  toggleEditMotorista(tipo: string) {
-    const item = document.getElementById("modalMotoristaEdit");
-    if (!item) return;
-    item.style.display = tipo
-  }
-
 }

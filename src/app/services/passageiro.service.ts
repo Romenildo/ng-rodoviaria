@@ -24,17 +24,17 @@ export class PassageiroService {
   removerPassageiro(id: string) {
     return this.http.delete(`${environment.API_URL}/Passageiro/${id}`);
   }
-  
-  atualizarPassageiro(id: string, passageiro:Passageiro){
+
+  atualizarPassageiro(id: string, passageiro: Passageiro) {
     return this.http.put(`${environment.API_URL}/Passageiro/${id}`, passageiro);
   }
 
-  comprarPassagem(idPassagem: string, nomeSobrenome:string){
+  comprarPassagem(idPassagem: string, nomeSobrenome: string) {
 
     const req = new HttpRequest('GET', `${environment.API_URL}/Passageiro/${nomeSobrenome}/ComprarPassagem/${idPassagem}`, {
       responseType: 'text'
-  });
+    });
 
-  return this.http.request(req);
+    return this.http.request(req);
   }
 }

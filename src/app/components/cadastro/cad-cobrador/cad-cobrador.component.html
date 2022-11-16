@@ -1,9 +1,9 @@
 <mat-card class="home mat-elevation-z3">
-<div class="container">
+  <div class="container">
     <h2> CADASTRAR NOVO COBRADOR</h2>
     <form [formGroup]="cobradorForm" (ngSubmit)="salvar()">
-  
-      <div class="campos" >
+
+      <div class="campos">
         <div class="campo">
           <label for="nome">nome:</label>
           <input type="text" id="nome" formControlName="nome">
@@ -19,8 +19,8 @@
           </p>
         </div>
       </div>
-    
-      <div class="campos" >
+
+      <div class="campos">
         <div class="campo">
           <label for="rg">Rg:</label>
           <input type="text" id="rg" formControlName="rg">
@@ -36,7 +36,7 @@
           </p>
         </div>
       </div>
-  
+
       <div class="campo">
         <label for="contato">contato</label>
         <input type="text" id="contato" formControlName="contato">
@@ -44,7 +44,7 @@
           Campo obrigatório
         </p>
       </div>
-  
+
       <div class="campos" style="display: flex;">
         <div class="campo">
           <label for="salario">Salario:</label>
@@ -54,15 +54,15 @@
           </p>
         </div>
       </div>
-  
+
       <div class="campo">
         <label for="imagem">Imagem</label>
         <input type="text" id="imagem" formControlName="imagem">
       </div>
-      
+
       <div class="acoes">
         <button class="btn-cadastro" type="button" (click)="fechar()">Voltar</button>
-        <button type="submit" class="btn-filtro" >Salvar</button>
+        <button type="submit" class="btn-filtro">Salvar</button>
       </div>
     </form>
   </div>

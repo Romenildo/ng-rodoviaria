@@ -1,20 +1,19 @@
 <div class="container">
 
-    <form [formGroup]="onibusForm" (ngSubmit)="salvar()">
+  <form [formGroup]="onibusForm" (ngSubmit)="salvar()">
 
-          <div class="campo">
-            <label for="nomeViacao">nome viacão:</label>
-            <input type="text" id="nomeViacao" formControlName="nomeViacao">
-            <p *ngIf="!nomeViacao?.valid && (nomeViacao?.dirty || nomeViacao?.touched)" class="error">
-              Campo obrigatório
-            </p>
-          </div>
-          
-    
-        <div class="acoes">
-          <button type="submit" class="btn-filtro">Cadastrar Onibus</button>
-        </div>
-      </form>
-    
+    <div class="campo">
+      <label for="nomeViacao">nome viacão:</label>
+      <input type="text" id="nomeViacao" formControlName="nomeViacao">
+      <p *ngIf="!nomeViacao?.valid && (nomeViacao?.dirty || nomeViacao?.touched)" class="error">
+        Campo obrigatório
+      </p>
+    </div>
+
+    <div class="acoes">
+      <button type="submit" class="btn-filtro">Cadastrar Onibus</button>
+    </div>
+  </form>
+
 
 </div>

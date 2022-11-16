@@ -3,17 +3,15 @@
     <div class="conteudo">
         <div class="titulo">
             <span>Ônibus</span>
-        </div>     
-        
+        </div>
+
     </div>
-    <app-cad-onibus></app-cad-onibus>
     
+    <app-cad-onibus></app-cad-onibus>
+
     <p>quant: {{listaOnibus.length}}</p>
 
-    <app-lista-onibus
-    *ngFor="let onibus of listaOnibus"
-    [onibus]="onibus"
-    >
+    <app-lista-onibus *ngFor="let onibus of listaOnibus" [onibus]="onibus">
     </app-lista-onibus>
 
 </mat-card>

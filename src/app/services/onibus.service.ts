@@ -24,31 +24,31 @@ export class OnibusService {
     return this.http.delete(`${environment.API_URL}/Onibus/${id}`);
   }
 
-  atualizarOnibus(id: string, onibus:Onibus){
+  atualizarOnibus(id: string, onibus: Onibus) {
     return this.http.put(`${environment.API_URL}/Onibus/${id}`, onibus);
   }
 
-  vincularCobrador(idOnibus: string, nomeCobrador:string){
+  vincularCobrador(idOnibus: string, nomeCobrador: string) {
 
     const req = new HttpRequest('GET', `${environment.API_URL}/Onibus/${idOnibus}/vincularCobrador/${nomeCobrador}`, {
       responseType: 'text'
-  });
-  return this.http.request(req);
+    });
+    return this.http.request(req);
   }
 
-  vincularMotorista(idOnibus: string, nomeMotorista:string){
+  vincularMotorista(idOnibus: string, nomeMotorista: string) {
 
     const req = new HttpRequest('GET', `${environment.API_URL}/Onibus/${idOnibus}/vincularMotorista/${nomeMotorista}`, {
       responseType: 'text'
-  });
-  return this.http.request(req);
+    });
+    return this.http.request(req);
   }
-  vincularPassagem(idOnibus: string, idPassagem:string){
+  vincularPassagem(idOnibus: string, idPassagem: string) {
 
     const req = new HttpRequest('GET', `${environment.API_URL}/Onibus/${idOnibus}/vincularPassagem/${idPassagem}`, {
       responseType: 'text'
-  });
-  return this.http.request(req);
+    });
+    return this.http.request(req);
   }
 
 }

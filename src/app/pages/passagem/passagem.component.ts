@@ -10,7 +10,7 @@ import { PassagemService } from 'src/app/services/passagem.service';
 export class PassagemComponent implements OnInit {
 
   passagens: Passagem[] = [];
-  constructor(private passagemService:PassagemService) { }
+  constructor(private passagemService: PassagemService) { }
 
   ngOnInit(): void {
     this.passagemService.passagens$.subscribe(passagens => this.passagens = passagens)

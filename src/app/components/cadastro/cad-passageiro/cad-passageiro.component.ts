@@ -17,7 +17,7 @@ export class CadPassageiroComponent implements OnInit {
     private fb: FormBuilder,
     private routerA: ActivatedRoute,
     private router: Router,
-    private passageiroService:PassageiroService
+    private passageiroService: PassageiroService
   ) {
     this.passageiroForm = this.fb.group({
       nome: ['', [Validators.required, Validators.maxLength(20)]],
@@ -59,29 +59,27 @@ export class CadPassageiroComponent implements OnInit {
   salvar() {
     if (this.passageiroForm.valid) {
 
-      if(this.passageiroForm.value.tipoTarifa){
+      if (this.passageiroForm.value.tipoTarifa) {
         this.passageiroForm.value.tipoTarifa = 2
-      }else{
+      } else {
         this.passageiroForm.value.tipoTarifa = 1
       }
 
       this.passageiroService
-      .cadastrarPassageiro(this.passageiroForm.value)
-      .subscribe((res:any) => {
-        console.log(res)
-        this.routerA.params.subscribe(p=>this.idPassagem = p['idPassagem'])
-        this.router.navigate(["passagem",this.idPassagem,"passageiro",res.nome+res.sobrenome,"finalizado"]);
-      }, error => {
-        alert("Não foi possível realizar o cadastro.");
-      });
+        .cadastrarPassageiro(this.passageiroForm.value)
+        .subscribe((res: any) => {
+          console.log(res)
+          this.routerA.params.subscribe(p => this.idPassagem = p['idPassagem'])
+          this.router.navigate(["passagem", this.idPassagem, "passageiro", res.nome + res.sobrenome, "finalizado"]);
+        }, error => {
+          alert("Não foi possível realizar o cadastro: "+error);
+        });
     } else {
       alert("Verifique os campos obrigatórios!");
     }
   }
+
   VoltarPassagens() {
     this.router.navigate(["passagem"]);
   }
-
- 
-  
 }

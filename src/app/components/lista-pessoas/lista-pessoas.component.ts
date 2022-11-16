@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Cobrador } from 'src/app/models/cobrador';
 import { Motorista } from 'src/app/models/motorista';
-import { Pessoa } from 'src/app/models/Pessoa';
 
 @Component({
   selector: 'app-lista-pessoas',
@@ -10,9 +9,9 @@ import { Pessoa } from 'src/app/models/Pessoa';
 })
 export class ListaPessoasComponent implements OnInit {
 
-  @Input() pessoas?: Pessoa[] | Cobrador[] | Motorista[];
-  @Input() tipo:string = "";
-  pessoaEdit?: Pessoa;
+  @Input() pessoas?:Cobrador[] | Motorista[];
+  @Input() tipoPessoa:string = "";
+  pessoaEdit?: Cobrador | Motorista;
   constructor() { }
 
   ngOnInit(): void {
@@ -20,7 +19,7 @@ export class ListaPessoasComponent implements OnInit {
     this.toggleEditMotorista('none');
   }
 
-  handleEdit(pessoa: Pessoa) {
+  handleEdit(pessoa: any) {
     this.pessoaEdit = pessoa;
     if(pessoa.cnh != null){
       this.toggleEditMotorista('block')
@@ -30,16 +29,16 @@ export class ListaPessoasComponent implements OnInit {
     
   }
 
-  toggleEdit(tipo: string) {
+  toggleEdit(tipoPessoa: string) {
     const item = document.getElementById("modalCobradorEdit");
     if (!item) return;
-    item.style.display = tipo
+    item.style.display = tipoPessoa
   }
 
-  toggleEditMotorista(tipo: string) {
+  toggleEditMotorista(tipoPessoa: string) {
     const item = document.getElementById("modalMotoristaEdit");
     if (!item) return;
-    item.style.display = tipo
+    item.style.display = tipoPessoa
   }
   
 }

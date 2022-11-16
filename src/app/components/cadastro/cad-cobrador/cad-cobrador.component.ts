@@ -55,24 +55,23 @@ export class CadCobradorComponent implements OnInit {
   salvar() {
     if (this.cobradorForm.valid) {
 
-      if(this.cobradorForm.value.imagem == null){
+      if (this.cobradorForm.value.imagem == null) {
         this.cobradorForm.value.imagem = "https://st2.depositphotos.com/11742109/48212/v/600/depositphotos_482126926-stock-illustration-gender-neutral-profile-avatar-front.jpg"
       }
-      
+
       this.cobradorService
-      .cadastrarCobrador(this.cobradorForm.value)
-      .subscribe((res) => {
-        this.router.navigate(["cobrador"]);
-      }, error => {
-        alert("Não foi possível realizar o cadastro.");
-      });
+        .cadastrarCobrador(this.cobradorForm.value)
+        .subscribe((res) => {
+          this.router.navigate(["cobrador"]);
+        }, error => {
+          alert("Não foi possível realizar o cadastro:" + error);
+        });
     } else {
       alert("Verifique os campos obrigatórios!");
     }
   }
 
-  
-  fechar(){
+  fechar() {
     this.router.navigate(["cobrador"]);
- }
+  }
 }

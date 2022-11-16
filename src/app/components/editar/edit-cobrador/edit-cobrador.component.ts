@@ -10,7 +10,7 @@ import { CobradorService } from 'src/app/services/cobrador.service';
 })
 export class EditCobradorComponent implements OnInit {
 
-  @Input() cobrador:any;
+  @Input() cobrador: any;
   cobradorForm: FormGroup;
 
   constructor(
@@ -20,7 +20,7 @@ export class EditCobradorComponent implements OnInit {
   ) {
     this.cobradorForm = this.fb.group({
       nome: ['', [Validators.required, Validators.maxLength(20)]],
-      sobrenome: ['', [Validators.required, Validators.maxLength(20),Validators.pattern]],
+      sobrenome: ['', [Validators.required, Validators.maxLength(20), Validators.pattern]],
       rg: ['', [Validators.required]],
       dataNascimento: ['', [Validators.required]],
       contato: ['', [Validators.required]],
@@ -53,26 +53,26 @@ export class EditCobradorComponent implements OnInit {
   atualizar() {
     if (this.cobradorForm.valid) {
       this.cobradorService.atualizarCobrador(this.cobrador.id, this.cobradorForm.value)
-      .subscribe((res) => {
-        const currentItems = this.cobradorService.cobradores$.getValue();
-        const itemUpdate:any = currentItems.find(d => d.id == this.cobrador.id)
-        itemUpdate.nome = this.cobradorForm.value.nome;
-        itemUpdate.sobrenome = this.cobradorForm.value.sobrenome;
-        itemUpdate.rg = this.cobradorForm.value.rg;
-        itemUpdate.dataNascimento = this.cobradorForm.value.dataNascimento;
-        itemUpdate.contato = this.cobradorForm.value.contato;
-        itemUpdate.salario = this.cobradorForm.value.salario;
-        itemUpdate.imagem = this.cobradorForm.value.imagem;
-      }, error => {
-        alert("Não foi possível Atualizar.");
-      });
+        .subscribe((res) => {
+          const currentItems = this.cobradorService.cobradores$.getValue();
+          const itemUpdate: any = currentItems.find(d => d.id == this.cobrador.id)
+          itemUpdate.nome = this.cobradorForm.value.nome;
+          itemUpdate.sobrenome = this.cobradorForm.value.sobrenome;
+          itemUpdate.rg = this.cobradorForm.value.rg;
+          itemUpdate.dataNascimento = this.cobradorForm.value.dataNascimento;
+          itemUpdate.contato = this.cobradorForm.value.contato;
+          itemUpdate.salario = this.cobradorForm.value.salario;
+          itemUpdate.imagem = this.cobradorForm.value.imagem;
+        }, error => {
+          alert("Não foi possível Atualizar.");
+        });
     } else {
       alert("Verifique os campos obrigatórios!");
     }
     this.toggleEdit('none')
   }
-  
-  updateForm(){
+
+  updateForm() {
     this.cobradorForm = this.fb.group({
       nome: [this.cobrador.nome, [Validators.required, Validators.maxLength(20)]],
       sobrenome: [this.cobrador.sobrenome, [Validators.required, Validators.maxLength(20)]],
@@ -84,7 +84,6 @@ export class EditCobradorComponent implements OnInit {
     })
   }
 
-  
   toggleEdit(tipo: string) {
     const item = document.getElementById("modalCobradorEdit");
     console.log(item)

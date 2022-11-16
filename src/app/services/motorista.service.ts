@@ -26,14 +26,14 @@ export class MotoristaService {
     return this.http.delete(`${environment.API_URL}/Motorista/${id}`);
   }
 
-  atualizarMotorista(id: string, motorista:Motorista){
+  atualizarMotorista(id: string, motorista: Motorista) {
     return this.http.put(`${environment.API_URL}/Motorista/${id}`, motorista);
   }
 
-  filtrarMotorista(id?:string, nome?:string) {
+  filtrarMotorista(id?: string, nome?: string) {
     let novosMotoristas: Motorista[] = [...this.motoristas$.getValue()];
-    
-    if(nome !== undefined){
+
+    if (nome !== undefined) {
       novosMotoristas = novosMotoristas.filter((element) => {
         if (element.nome.toUpperCase().includes(nome?.toUpperCase())) {
           return element;
@@ -41,7 +41,7 @@ export class MotoristaService {
         return
       });
     }
-    if(id !== undefined){
+    if (id !== undefined) {
       novosMotoristas = novosMotoristas.filter((element) => {
         if (element.id.includes(id)) {
           return element;
@@ -49,7 +49,7 @@ export class MotoristaService {
         return
       });
     }
-    
+
     return novosMotoristas;
   }
 }

@@ -24,16 +24,16 @@ export class CobradorService {
   removerCobrador(id: string) {
     return this.http.delete(`${environment.API_URL}/Cobrador/${id}`);
   }
-  
-  atualizarCobrador(id: string, cobrador:Cobrador){
+
+  atualizarCobrador(id: string, cobrador: Cobrador) {
 
     return this.http.put(`${environment.API_URL}/Cobrador/${id}`, cobrador);
   }
 
-  filtrarCobrador(id?:string, nome?:string) {
+  filtrarCobrador(id?: string, nome?: string) {
     let novosCobradores: Cobrador[] = [...this.cobradores$.getValue()];
-    
-    if(nome !== undefined){
+
+    if (nome !== undefined) {
       novosCobradores = novosCobradores.filter((element) => {
         if (element.nome.toUpperCase().includes(nome?.toUpperCase())) {
           return element;
@@ -41,7 +41,7 @@ export class CobradorService {
         return
       });
     }
-    if(id !== undefined){
+    if (id !== undefined) {
       novosCobradores = novosCobradores.filter((element) => {
         if (element.id.includes(id)) {
           return element;
@@ -49,7 +49,7 @@ export class CobradorService {
         return
       });
     }
-    
+
     return novosCobradores;
   }
 }

@@ -11,14 +11,13 @@ import { MotoristaService } from 'src/app/services/motorista.service';
 export class MotoristaComponent implements OnInit {
 
   motoristas: Motorista[] = []
-  public id?: string;
-  public nome?: string;
+  id?: string;
+  nome?: string;
 
-  constructor(private motoristaService: MotoristaService, private router:Router) { }
+  constructor(private motoristaService: MotoristaService, private router: Router) { }
 
   ngOnInit(): void {
-    this.toggleEdit('none')
-    this.toggleEditMotorista('none')
+
     this.motoristaService.motoristas$.subscribe(motoristas => this.motoristas = motoristas)
 
     this.motoristaService.getMotoristas().subscribe(resposta => {
@@ -30,19 +29,8 @@ export class MotoristaComponent implements OnInit {
     this.motoristas = this.motoristaService.filtrarMotorista(this.id, this.nome);
   }
 
-  cadastrar(){
-      this.router.navigate(["motorista","cadastro"]);
-  }
-
-  toggleEdit(tipo: string) {
-    const item = document.getElementById("modalCobradorEdit");
-    if (!item) return;
-    item.style.display = tipo
-  }
-  toggleEditMotorista(tipo: string) {
-    const item = document.getElementById("modalMotoristaEdit");
-    if (!item) return;
-    item.style.display = tipo
+  cadastrar() {
+    this.router.navigate(["motorista", "cadastro"]);
   }
 
 }

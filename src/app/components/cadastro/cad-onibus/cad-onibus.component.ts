@@ -13,7 +13,7 @@ export class CadOnibusComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private onibusService:OnibusService
+    private onibusService: OnibusService
   ) {
     this.onibusForm = this.fb.group({
       nomeViacao: ['', [Validators.required, Validators.maxLength(20)]],
@@ -25,24 +25,25 @@ export class CadOnibusComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
   get nomeViacao() {
     return this.onibusForm.get('nomeViacao');
   }
-  
+
 
   salvar() {
     if (this.onibusForm.valid) {
       this.onibusService
-      .cadastrarOnibus(this.onibusForm.value)
-      .subscribe((res:any) => {
-        const currentItems = this.onibusService.listaOnibus$.getValue();
-        currentItems.push(res);
-      }, error => {
-        alert("Não foi possível realizar o cadastro.");
-      });
+        .cadastrarOnibus(this.onibusForm.value)
+        .subscribe((res: any) => {
+          const currentItems = this.onibusService.listaOnibus$.getValue();
+          currentItems.push(res);
+        }, error => {
+          alert("Não foi possível realizar o cadastro: " + error);
+        });
     } else {
       alert("Verifique os campos obrigatórios!");
     }
   }
-  
+
 }

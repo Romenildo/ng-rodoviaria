@@ -1,9 +1,10 @@
 .container {
-  
+
   h2 {
     margin-bottom: 30px;
   }
-  .campos{
+
+  .campos {
     display: flex;
     gap: 15px;
   }
@@ -11,7 +12,8 @@
   .campo {
     margin-bottom: 10px;
 
-    label, input {
+    label,
+    input {
       display: block;
     }
 
@@ -26,14 +28,13 @@
       font-size: 28px;
     }
 
-    p{
+    p {
       color: red;
       font-size: 12px;
       padding-left: 5px;
     }
 
   }
-
 
   .acoes {
     display: flex;
