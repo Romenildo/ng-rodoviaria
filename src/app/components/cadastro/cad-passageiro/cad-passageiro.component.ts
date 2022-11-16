@@ -64,7 +64,7 @@ export class CadPassageiroComponent implements OnInit {
       }else{
         this.passageiroForm.value.tipoTarifa = 1
       }
-      console.log(this.passageiroForm.value)
+
       this.passageiroService
       .cadastrarPassageiro(this.passageiroForm.value)
       .subscribe((res:any) => {

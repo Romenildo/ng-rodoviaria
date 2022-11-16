@@ -24,7 +24,7 @@ export class CadCobradorComponent implements OnInit {
       dataNascimento: ['', [Validators.required]],
       contato: ['', [Validators.required]],
       salario: ['', [Validators.required]],
-      imagem: [''],
+      imagem: [null],
     })
   }
 
@@ -54,14 +54,15 @@ export class CadCobradorComponent implements OnInit {
 
   salvar() {
     if (this.cobradorForm.valid) {
-      //adicionar foto
-      //"https://st2.depositphotos.com/11742109/48212/v/600/depositphotos_482126926-stock-illustration-gender-neutral-profile-avatar-front.jpg"
+
+      if(this.cobradorForm.value.imagem == null){
+        this.cobradorForm.value.imagem = "https://st2.depositphotos.com/11742109/48212/v/600/depositphotos_482126926-stock-illustration-gender-neutral-profile-avatar-front.jpg"
+      }
+      
       this.cobradorService
       .cadastrarCobrador(this.cobradorForm.value)
       .subscribe((res) => {
         this.router.navigate(["cobrador"]);
-        //const currentItems = this.cobradorService.cobradores$.getValue();
-        //currentItems.push(res);
       }, error => {
         alert("Não foi possível realizar o cadastro.");
       });

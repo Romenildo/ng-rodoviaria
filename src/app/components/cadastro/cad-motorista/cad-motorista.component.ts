@@ -57,14 +57,15 @@ export class CadMotoristaComponent implements OnInit {
 
   salvar() {
     if (this.motoristaForm.valid) {
-      //adicionar foto
-      //"https://st2.depositphotos.com/11742109/48212/v/600/depositphotos_482126926-stock-illustration-gender-neutral-profile-avatar-front.jpg"
+      
+      if(this.motoristaForm.value.imagem == null){
+        this.motoristaForm.value.imagem = "https://st2.depositphotos.com/11742109/48212/v/600/depositphotos_482126926-stock-illustration-gender-neutral-profile-avatar-front.jpg"
+      }
+
       this.motoristaService
       .cadastrarMotorista(this.motoristaForm.value)
       .subscribe((res) => {
         this.router.navigate(["motorista"]);
-        //const currentItems = this.motoristaService.motoristas$.getValue();
-        //currentItems.push(res);
       }, error => {
         alert("Não foi possível realizar o cadastro.");
       });

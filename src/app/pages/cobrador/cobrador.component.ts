@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { Cobrador } from 'src/app/models/cobrador';
 import { CobradorService } from 'src/app/services/cobrador.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { CobradorService } from 'src/app/services/cobrador.service';
 })
 export class CobradorComponent implements OnInit {
 
-  cobradores: any[] = []
+  cobradores: Cobrador[] = []
   public id?: string;
   public nome?: string;
 
@@ -20,7 +21,7 @@ export class CobradorComponent implements OnInit {
     this.cobradorService.cobradores$.subscribe(cobradores => this.cobradores = cobradores)
 
     this.cobradorService.getCobradores().subscribe(resposta => {
-      this.cobradorService.cobradores$.next(resposta);
+      this.cobradorService.cobradores$.next(resposta as any);
     });
   }
 
@@ -37,6 +38,5 @@ export class CobradorComponent implements OnInit {
     if (!item) return;
     item.style.display = tipo
   }
-
 
 }

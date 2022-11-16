@@ -2,28 +2,29 @@ import { HttpClient, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Onibus } from '../models/onibus';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OnibusService {
-  public listaOnibus$: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
+  public listaOnibus$: BehaviorSubject<Onibus[]> = new BehaviorSubject<Onibus[]>([]);
 
   constructor(private http: HttpClient) { }
 
-  getOnibus(): Observable<any> {
-    return this.http.get<any>(`${environment.API_URL}/Onibus`);
+  getOnibus(): Observable<Onibus> {
+    return this.http.get<Onibus>(`${environment.API_URL}/Onibus`);
   }
 
-  cadastrarOnibus(onibus: any) {
+  cadastrarOnibus(onibus: Onibus) {
     return this.http.post(`${environment.API_URL}/Onibus`, onibus);
   }
 
-  removerOnibus(id: number) {
+  removerOnibus(id: string) {
     return this.http.delete(`${environment.API_URL}/Onibus/${id}`);
   }
 
-  atualizarOnibus(id: number, onibus:any){
+  atualizarOnibus(id: string, onibus:Onibus){
     return this.http.put(`${environment.API_URL}/Onibus/${id}`, onibus);
   }
 

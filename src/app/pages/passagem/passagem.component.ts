@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Passagem } from 'src/app/models/Passagem';
 import { PassagemService } from 'src/app/services/passagem.service';
 
 @Component({
@@ -8,14 +9,14 @@ import { PassagemService } from 'src/app/services/passagem.service';
 })
 export class PassagemComponent implements OnInit {
 
-  passagens: any[] = [];
+  passagens: Passagem[] = [];
   constructor(private passagemService:PassagemService) { }
 
   ngOnInit(): void {
     this.passagemService.passagens$.subscribe(passagens => this.passagens = passagens)
 
     this.passagemService.getPassagens().subscribe(resposta => {
-      this.passagemService.passagens$.next(resposta);
+      this.passagemService.passagens$.next(resposta as any);
     });
   }
 

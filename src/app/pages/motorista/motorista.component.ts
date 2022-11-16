@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Motorista } from 'src/app/models/motorista';
 import { MotoristaService } from 'src/app/services/motorista.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { MotoristaService } from 'src/app/services/motorista.service';
 })
 export class MotoristaComponent implements OnInit {
 
-  motoristas: any[] = []
+  motoristas: Motorista[] = []
   public id?: string;
   public nome?: string;
 
@@ -17,11 +18,10 @@ export class MotoristaComponent implements OnInit {
 
   ngOnInit(): void {
     this.toggleEdit('none')
-    //observar
     this.motoristaService.motoristas$.subscribe(motoristas => this.motoristas = motoristas)
 
     this.motoristaService.getMotoristas().subscribe(resposta => {
-      this.motoristaService.motoristas$.next(resposta);
+      this.motoristaService.motoristas$.next(resposta as any);
     });
   }
 

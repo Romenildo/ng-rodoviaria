@@ -1,4 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Cobrador } from 'src/app/models/cobrador';
+import { Motorista } from 'src/app/models/motorista';
+import { Onibus } from 'src/app/models/onibus';
+import { Passagem } from 'src/app/models/Passagem';
 import { CobradorService } from 'src/app/services/cobrador.service';
 import { MotoristaService } from 'src/app/services/motorista.service';
 import { OnibusService } from 'src/app/services/onibus.service';
@@ -11,13 +15,15 @@ import { PassagemService } from 'src/app/services/passagem.service';
 })
 export class ListaOnibusComponent implements OnInit {
 
-  @Input() onibus?: any;
-  cobradores:any[] = []
-  mostrarCobradores = false;
-  motoristas:any[] = []
-  mostrarMotoristas = false;
-  passagens:any[] = []
-  mostrarPassagens = false;
+  @Input() onibus: any;
+  cobradores:Cobrador[] = []
+  motoristas:Motorista[] = []
+  passagens:Passagem[] = []
+
+  mostrarCobradores:boolean = false;
+  mostrarMotoristas:boolean = false;
+  mostrarPassagens:boolean = false;
+
   constructor(
     private cobradorService:CobradorService,
     private onibusService:OnibusService,
@@ -27,9 +33,8 @@ export class ListaOnibusComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log(this.onibus)
-    this.cobradorService.cobradores$.subscribe(cobradores => {this.cobradores = cobradores.filter(x=>x.onibus == null)})
-    this.motoristaService.motoristas$.subscribe(motoristas => this.motoristas = motoristas)
+    this.cobradorService.cobradores$.subscribe(cobradores => this.cobradores = cobradores.filter(x=>x.onibus == null))
+    this.motoristaService.motoristas$.subscribe(motoristas => this.motoristas = motoristas.filter(x=>x.onibus == null))
     this.passagemService.passagens$.subscribe(passagens => this.passagens = passagens)
   }
 

@@ -55,7 +55,7 @@ export class EditCobradorComponent implements OnInit {
       this.cobradorService.atualizarCobrador(this.cobrador.id, this.cobradorForm.value)
       .subscribe((res) => {
         const currentItems = this.cobradorService.cobradores$.getValue();
-        const itemUpdate = currentItems.find(d => d.id == this.cobrador.id)
+        const itemUpdate:any = currentItems.find(d => d.id == this.cobrador.id)
         itemUpdate.nome = this.cobradorForm.value.nome;
         itemUpdate.sobrenome = this.cobradorForm.value.sobrenome;
         itemUpdate.rg = this.cobradorForm.value.rg;

@@ -1,4 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Cobrador } from 'src/app/models/cobrador';
+import { Motorista } from 'src/app/models/motorista';
+import { Pessoa } from 'src/app/models/Pessoa';
 
 @Component({
   selector: 'app-lista-pessoas',
@@ -7,16 +10,16 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ListaPessoasComponent implements OnInit {
 
-  @Input() pessoas?: any[];
+  @Input() pessoas?: Pessoa[] | Cobrador[] | Motorista[];
   @Input() tipo:string = "";
-  pessoaEdit?: any;
+  pessoaEdit?: Pessoa;
   constructor() { }
 
   ngOnInit(): void {
     this.toggleEdit('none');
   }
 
-  handleEdit(pessoa: any) {
+  handleEdit(pessoa: Pessoa) {
     this.pessoaEdit = pessoa;
     this.toggleEdit('block')
   }
@@ -27,6 +30,4 @@ export class ListaPessoasComponent implements OnInit {
     item.style.display = tipo
   }
   
-  
-
 }

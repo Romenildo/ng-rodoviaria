@@ -10,7 +10,6 @@ import { PassagemService } from 'src/app/services/passagem.service';
 })
 export class CadPassagemComponent implements OnInit {
 
- 
   passagemForm: FormGroup;
 
   constructor(
@@ -50,7 +49,7 @@ export class CadPassagemComponent implements OnInit {
     if (this.passagemForm.valid) {
       this.passagemService
       .cadastrarPassagem(this.passagemForm.value)
-      .subscribe((res) => {
+      .subscribe((res:any) => {
         const currentItems = this.passagemService.passagens$.getValue();
         currentItems.push(res);
       }, error => {
