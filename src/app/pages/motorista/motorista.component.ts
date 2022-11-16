@@ -18,6 +18,7 @@ export class MotoristaComponent implements OnInit {
 
   ngOnInit(): void {
     this.toggleEdit('none')
+    this.toggleEditMotorista('none')
     this.motoristaService.motoristas$.subscribe(motoristas => this.motoristas = motoristas)
 
     this.motoristaService.getMotoristas().subscribe(resposta => {
@@ -38,4 +39,10 @@ export class MotoristaComponent implements OnInit {
     if (!item) return;
     item.style.display = tipo
   }
+  toggleEditMotorista(tipo: string) {
+    const item = document.getElementById("modalMotoristaEdit");
+    if (!item) return;
+    item.style.display = tipo
+  }
+
 }

@@ -17,15 +17,27 @@ export class ListaPessoasComponent implements OnInit {
 
   ngOnInit(): void {
     this.toggleEdit('none');
+    this.toggleEditMotorista('none');
   }
 
   handleEdit(pessoa: Pessoa) {
     this.pessoaEdit = pessoa;
-    this.toggleEdit('block')
+    if(pessoa.cnh != null){
+      this.toggleEditMotorista('block')
+    }else{
+      this.toggleEdit('block')
+    }
+    
   }
 
   toggleEdit(tipo: string) {
     const item = document.getElementById("modalCobradorEdit");
+    if (!item) return;
+    item.style.display = tipo
+  }
+
+  toggleEditMotorista(tipo: string) {
+    const item = document.getElementById("modalMotoristaEdit");
     if (!item) return;
     item.style.display = tipo
   }

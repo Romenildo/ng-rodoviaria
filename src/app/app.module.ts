@@ -32,6 +32,7 @@ import { CadPassagemComponent } from './components/cadastro/cad-passagem/cad-pas
 import { CadOnibusComponent } from './components/cadastro/cad-onibus/cad-onibus.component';
 import { ListaOnibusComponent } from './components/lista-onibus/lista-onibus.component';
 import { EditCobradorComponent } from './components/editar/edit-cobrador/edit-cobrador.component';
+import { EditMotoristaComponent } from './components/editar/edit-motorista/edit-motorista.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,9 @@ import { EditCobradorComponent } from './components/editar/edit-cobrador/edit-co
     CadPassagemComponent,
     CadOnibusComponent,
     ListaOnibusComponent,
-    EditCobradorComponent 
+    EditCobradorComponent,
+    EditMotoristaComponent 
+
   ],
   imports: [
     BrowserModule,
