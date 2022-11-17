@@ -4,14 +4,14 @@
 
     <div class="campos">
       <div class="campo">
-        <label for="nome">nome:</label>
+        <label for="nome">nome: </label>
         <input type="text" id="nome" formControlName="nome">
         <p *ngIf="!nome?.valid && (nome?.dirty || nome?.touched)" class="error">
           Campo obrigatório
         </p>
       </div>
       <div class="campo">
-        <label for="sobrenome">sobrenome:</label>
+        <label for="sobrenome">sobrenome: </label>
         <input type="text" id="sobrenome" formControlName="sobrenome">
         <p *ngIf="!sobrenome?.valid && (sobrenome?.dirty || sobrenome?.touched)" class="error">
           Campo obrigatório
@@ -21,14 +21,14 @@
 
     <div class="campos">
       <div class="campo">
-        <label for="rg">Rg:</label>
+        <label for="rg">Rg: </label>
         <input type="text" id="rg" formControlName="rg">
         <p *ngIf="!rg?.valid && (rg?.dirty || rg?.touched)" class="error">
           Campo obrigatório
         </p>
       </div>
       <div class="campo">
-        <label for="dataNascimento">data nascimento:</label>
+        <label for="dataNascimento">data nascimento: </label>
         <input type="text" id="dataNascimento" formControlName="dataNascimento">
         <p *ngIf="!dataNascimento?.valid && (dataNascimento?.dirty || dataNascimento?.touched)" class="error">
           Campo obrigatório
@@ -37,7 +37,7 @@
     </div>
 
     <div class="campo">
-      <label for="contato">contato</label>
+      <label for="contato">contato: </label>
       <input type="text" id="contato" formControlName="contato">
       <p *ngIf="!contato?.valid && (contato?.dirty || contato?.touched)" class="error">
         Campo obrigatório
@@ -45,7 +45,7 @@
     </div>
 
     <div class="campo">
-      <label for="email">email</label>
+      <label for="email">email: </label>
       <input type="text" id="email" formControlName="email">
       <p *ngIf="!email?.valid && (email?.dirty || email?.touched)" class="error">
         Campo obrigatório
@@ -55,7 +55,7 @@
 
     <div class="checkbox">
       <input type="checkbox" id="seguro" formControlName="seguro" />
-      <label for="seguro">Seguro</label>
+      <label for="seguro">Seguro <a target="_blank" href="https://blog.buscaonibus.com.br/voce-sabe-como-funciona-o-seguro-de-viagem-de-onibus/">saiba mais</a></label>
     </div>
     <div class="checkbox">
       <input type="checkbox" id="tipoTarifa" formControlName="tipoTarifa" />
@@ -67,6 +67,5 @@
       <button type="submit" class="btn-filtro">Confirmar</button>
     </div>
   </form>
-
 
 </div>

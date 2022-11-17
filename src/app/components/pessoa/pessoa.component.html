@@ -5,15 +5,15 @@
     <img [src]="pessoa?.imagem" alt="">
 
     <div class="dados-pessoais">
-      <p>Dados Pessoais:</p>
+      <p><strong>Dados Pessoais: </strong></p>
 
       <div class="campo">
-        <label for="id" class="bold">id:</label>
+        <label for="id" class="bold">id: </label>
         <label for="id">{{pessoa?.id}}</label>
       </div>
 
       <div class="campo">
-        <label for="nome" class="bold">Nome:</label>
+        <label for="nome" class="bold">Nome: </label>
         <label for="nome"> {{pessoa?.nome}}</label>
 
         <label for="sobrenome" class="bold" style="padding-left: 15%;">Sobrenome:</label>
@@ -21,22 +21,22 @@
       </div>
 
       <div class="campo">
-        <label for="data" class="bold">RG:</label>
+        <label for="data" class="bold">RG: </label>
         <label for="data"> {{pessoa?.rg}}</label>
         <label for="data" class="bold" style="padding-left: 15%;">Data Nascimento:</label>
         <label for="data"> {{pessoa?.dataNascimento}}</label>
       </div>
       <div class="campo">
-        <label for="contato" class="bold">contato:</label>
+        <label for="contato" class="bold">Contato: </label>
         <label for="contato">{{pessoa?.contato}}</label>
       </div>
 
       <div class="campo" *ngIf="tipoPessoa ==='motorista'">
-        <label for="cnh" class="bold">Cnh:</label>
+        <label for="cnh" class="bold">CNH:</label>
         <label for="cnh">{{pessoa?.cnh}}</label>
       </div>
       <div class="campo">
-        <label for="salario" class="bold" style="padding-left: 30%;">Salário:</label>
+        <label for="salario" class="bold" style="padding-left: 30%;">Salário: </label>
         <label for="salario"> R${{pessoa?.salario}}</label>
       </div>
       <div class="campo" *ngIf="pessoa?.onibus != null" style="position: absolute; left:45px;margin-top:10px;">
@@ -53,7 +53,7 @@
     <button type="button" class="btn-icon" (click)="editar()"><em class="material-icons">edit</em>
     </button>
 
-    <button type="button" class="btn-icon" (click)="remover()"><em class="material-icons">delete</em>
+    <button type="button" class="btn-icon" (click)="remover()"  ><em class="material-icons">delete</em>
     </button>
 
   </div>

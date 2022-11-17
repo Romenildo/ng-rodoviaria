@@ -9,12 +9,18 @@
         <p *ngIf="!destinoSaida?.valid && (destinoSaida?.dirty || destinoSaida?.touched)" class="error">
           Campo obrigatório
         </p>
+        <p *ngIf="destinoSaida?.errors?.['maxlength']" class="error">
+          Limite de 30 caracteres!
+        </p>
       </div>
       <div class="campo">
         <label for="destinoChegada">destino Chegada:</label>
         <input type="text" id="destinoChegada" formControlName="destinoChegada">
         <p *ngIf="!destinoChegada?.valid && (destinoChegada?.dirty || destinoChegada?.touched)" class="error">
           Campo obrigatório
+        </p>
+        <p *ngIf="destinoChegada?.errors?.['maxlength']" class="error">
+          Limite de 20 caracteres!
         </p>
       </div>
     </div>
@@ -26,12 +32,18 @@
         <p *ngIf="!horarioSaida?.valid && (horarioSaida?.dirty || horarioSaida?.touched)" class="error">
           Campo obrigatório
         </p>
+        <p *ngIf="horarioSaida?.errors?.['pattern']" class="error">
+          Formato da hora inválido. (00:00)
+        </p>
       </div>
       <div class="campo">
         <label for="horarioChegada">Horario Chegada:</label>
         <input type="text" id="horarioChegada" formControlName="horarioChegada">
         <p *ngIf="!horarioChegada?.valid && (horarioChegada?.dirty || horarioChegada?.touched)" class="error">
           Campo obrigatório
+        </p>
+        <p *ngIf="horarioChegada?.errors?.['pattern']" class="error">
+          Formato da hora inválido. (00:00)
         </p>
       </div>
     </div>
@@ -41,6 +53,9 @@
       <input type="text" id="precoPassagem" formControlName="precoPassagem">
       <p *ngIf="!precoPassagem?.valid && (precoPassagem?.dirty || precoPassagem?.touched)" class="error">
         Campo obrigatório
+      </p>
+      <p *ngIf="precoPassagem?.errors?.['pattern']" class="error">
+        Limite do valor em 1000
       </p>
     </div>
 

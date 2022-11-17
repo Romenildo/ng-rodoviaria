@@ -7,17 +7,17 @@
 
         <div class="filtros">
             <div class="campo">
-                <label for="id">Id:</label>
+                <label for="id">Id: </label>
                 <input type="text" [(ngModel)]="id" id="id">
             </div>
             <div class="campo">
-                <label for="nome">Nome:</label>
+                <label for="nome">Nome: </label>
                 <input type="text" [(ngModel)]="nome" id="nome">
             </div>
         </div>
 
         <div class="botoes">
-            <button type="button" class="btn-filtro" (click)="filtrar()">Filtrar</button>
+            <button type="button" class="btn-filtro"  (click)="filtrar()">Filtrar</button>
             <button type="button" class="btn-cadastro" (click)="cadastrar()">Cadastrar</button>
         </div>
         <p>quant: {{cobradores.length}}</p>

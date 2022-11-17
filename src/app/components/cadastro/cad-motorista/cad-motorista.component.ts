@@ -20,11 +20,11 @@ export class CadMotoristaComponent implements OnInit {
     this.motoristaForm = this.fb.group({
       nome: ['', [Validators.required, Validators.maxLength(20)]],
       sobrenome: ['', [Validators.required, Validators.maxLength(20)]],
-      rg: ['', [Validators.required]],
-      dataNascimento: ['', [Validators.required]],
-      cnh: ['', [Validators.required]],
-      contato: ['', [Validators.required]],
-      salario: ['', [Validators.required]],
+      rg: ['', [ Validators.required, Validators.pattern('(^\\d{1,2}).?(\\d{3}).?(\\d{3})-?(\\d{1}|X|x$)')]],
+      dataNascimento: ['', [Validators.required, Validators.pattern('(^\\d{2})/?(\\d{2})/?(\\d{4})')]],
+      contato: ['', [Validators.required, Validators.pattern('(^[0-9]{2})?(\\s|-)?(9?[0-9]{4})-?([0-9]{4}$)')]],
+      salario: ['', [Validators.required, Validators.pattern('(^[0-9]{1,6}$)')]],
+      cnh: ['', [Validators.required, Validators.pattern('(^[0-9]{11}$)')]],
       imagem: [null],
 
     })

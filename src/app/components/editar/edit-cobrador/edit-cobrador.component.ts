@@ -20,12 +20,12 @@ export class EditCobradorComponent implements OnInit {
   ) {
     this.cobradorForm = this.fb.group({
       nome: ['', [Validators.required, Validators.maxLength(20)]],
-      sobrenome: ['', [Validators.required, Validators.maxLength(20), Validators.pattern]],
-      rg: ['', [Validators.required]],
-      dataNascimento: ['', [Validators.required]],
-      contato: ['', [Validators.required]],
-      salario: ['', [Validators.required]],
-      imagem: [''],
+      sobrenome: ['', [Validators.required, Validators.maxLength(20)]],
+      rg: ['', [ Validators.required, Validators.pattern('(^\\d{1,2}).?(\\d{3}).?(\\d{3})-?(\\d{1}|X|x$)')]],
+      dataNascimento: ['', [Validators.required, Validators.pattern('(^\\d{2})/?(\\d{2})/?(\\d{4})')]],
+      contato: ['', [Validators.required, Validators.pattern('(^[0-9]{2})?(\\s|-)?(9?[0-9]{4})-?([0-9]{4}$)')]],
+      salario: ['', [Validators.required, Validators.pattern('(^[0-9]{1,6}$)')]],
+      imagem: [null],
     })
   }
 
@@ -76,10 +76,10 @@ export class EditCobradorComponent implements OnInit {
     this.cobradorForm = this.fb.group({
       nome: [this.cobrador.nome, [Validators.required, Validators.maxLength(20)]],
       sobrenome: [this.cobrador.sobrenome, [Validators.required, Validators.maxLength(20)]],
-      rg: [this.cobrador.rg, [Validators.required]],
-      dataNascimento: [this.cobrador.dataNascimento, [Validators.required]],
-      contato: [this.cobrador.contato, [Validators.required]],
-      salario: [this.cobrador.salario, [Validators.required]],
+      rg: [this.cobrador.rg, [ Validators.required, Validators.pattern('(^\\d{1,2}).?(\\d{3}).?(\\d{3})-?(\\d{1}|X|x$)')]],
+      dataNascimento: [this.cobrador.dataNascimento, [Validators.required, Validators.pattern('(^\\d{2})/?(\\d{2})/?(\\d{4})')]],
+      contato: [this.cobrador.contato, [Validators.required, Validators.pattern('(^[0-9]{2})?(\\s|-)?(9?[0-9]{4})-?([0-9]{4}$)')]],
+      salario: [this.cobrador.salario, [Validators.required, Validators.pattern('(^[0-9]{1,6}$)')]],
       imagem: [this.cobrador.imagem],
     })
   }

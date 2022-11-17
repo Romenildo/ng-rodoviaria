@@ -36,7 +36,7 @@
         </div>
 
         <div class="campo-onibus" *ngIf="passagem?.onibus != null">
-            <label for="onibus"><strong>Onibus associado:</strong> </label>
+            <label for="onibus"><strong>Onibus associado: </strong> </label>
             <label for="onibus"> {{passagem?.onibus?.nomeViacao}}</label>
         </div>
     </div>
@@ -54,10 +54,11 @@
         <h1>Lista de Passageiros</h1>
         <div class="lista">
             <h2 *ngIf="passagem?.passageiros == null" >Não há passageiros</h2>
+            
             <div class="conteudo" *ngFor="let passageiro of passagem?.passageiros;let i = index">
-                <p><strong>{{i+1}}. Nome:</strong>{{passageiro.nome}} {{passageiro.sobrenome}}</p>
-                <p><strong>Email:</strong> {{passageiro.email}}</p>
-                <p><strong>Seguro: </strong>{{passageiro.seguro?"Sim":"Não"}} <strong> Estudante:</strong>{{passageiro.tipo==2?"Sim":"Não"}} </p>
+                <p><strong>{{i+1}}. Nome: </strong>{{passageiro.nome}} {{passageiro.sobrenome}}</p>
+                <p><strong>Email: </strong> {{passageiro.email}}</p>
+                <p><strong>Seguro: </strong>{{passageiro.seguro?"Sim":"Não"}} <strong> Estudante: </strong>{{passageiro.tipo==2?"Sim":"Não"}} </p>
             </div>
         </div>
     </app-modal>

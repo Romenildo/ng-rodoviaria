@@ -18,11 +18,11 @@ export class CadPassagemComponent implements OnInit {
     private passagemService: PassagemService
   ) {
     this.passagemForm = this.fb.group({
-      destinoSaida: ['', [Validators.required, Validators.maxLength(20)]],
-      destinoChegada: ['', [Validators.required, Validators.maxLength(20)]],
-      horarioSaida: ['', [Validators.required]],
-      horarioChegada: ['', [Validators.required]],
-      precoPassagem: ['', [Validators.required]],
+      destinoSaida: ['', [Validators.required, Validators.maxLength(30)]],
+      destinoChegada: ['', [Validators.required, Validators.maxLength(30)]],
+      horarioSaida: ['', [Validators.required, Validators.pattern('(^\\d{2}):?(\\d{2})')]],
+      horarioChegada: ['', [Validators.required, Validators.pattern('(^\\d{2}):?(\\d{2})')]],
+      precoPassagem: ['', [Validators.required, Validators.pattern('(^[0-9]{1,4}$)')]],
     })
   }
 

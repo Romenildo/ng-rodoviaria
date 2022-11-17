@@ -5,52 +5,70 @@
 
       <div class="campos">
         <div class="campo">
-          <label for="nome">nome:</label>
+          <label for="nome">nome: </label>
           <input type="text" id="nome" formControlName="nome">
           <p *ngIf="!nome?.valid && (nome?.dirty || nome?.touched)" class="error">
             Campo obrigatório
           </p>
+          <p *ngIf="nome?.errors?.['maxlength']" class="error">
+            Limite de 20 caracteres!
+          </p>
         </div>
         <div class="campo">
-          <label for="sobrenome">sobrenome:</label>
+          <label for="sobrenome">sobrenome: </label>
           <input type="text" id="sobrenome" formControlName="sobrenome">
           <p *ngIf="!sobrenome?.valid && (sobrenome?.dirty || sobrenome?.touched)" class="error">
             Campo obrigatório
+          </p>
+          <p *ngIf="sobrenome?.errors?.['maxlength']" class="error">
+            Limite de 20 caracteres!
           </p>
         </div>
       </div>
 
       <div class="campos">
         <div class="campo">
-          <label for="rg">Rg:</label>
+          <label for="rg">Rg: </label>
           <input type="text" id="rg" formControlName="rg">
           <p *ngIf="!rg?.valid && (rg?.dirty || rg?.touched)" class="error">
             Campo obrigatório
           </p>
+          <p *ngIf="rg?.errors?.['pattern']" class="error">
+            Formato do rg inválido. (dd.ddd.ddd-d)
+          </p>
         </div>
         <div class="campo">
-          <label for="dataNascimento">data nascimento:</label>
+          <label for="dataNascimento">data nascimento: </label>
           <input type="text" id="dataNascimento" formControlName="dataNascimento">
           <p *ngIf="!dataNascimento?.valid && (dataNascimento?.dirty || dataNascimento?.touched)" class="error">
             Campo obrigatório
+          </p>
+          <p *ngIf="dataNascimento?.errors?.['pattern']" class="error">
+            Formato da data inválido. (dd/mm/yyyy)
           </p>
         </div>
       </div>
 
       <div class="campo">
-        <label for="contato">contato</label>
+        <label for="contato">contato: </label>
         <input type="text" id="contato" formControlName="contato">
         <p *ngIf="!contato?.valid && (contato?.dirty || contato?.touched)" class="error">
           Campo obrigatório
+        </p>
+        <p *ngIf="contato?.errors?.['pattern']" class="error">
+          Formato número inválido.
         </p>
       </div>
 
       <div class="campos" style="display: flex;">
         <div class="campo">
-          <label for="cnh">cnh:</label>
+          <label for="cnh">cnh: </label>
           <input type="text" id="cnh" formControlName="cnh">
           <p *ngIf="!cnh?.valid && (cnh?.dirty || cnh?.touched)" class="error">
             Campo obrigatório
+          </p>
+          <p *ngIf="cnh?.errors?.['pattern']" class="error">
+            Formato cnh inválido
           </p>
         </div>
         <div class="campo">
@@ -59,11 +77,14 @@
           <p *ngIf="!salario?.valid && (salario?.dirty || salario?.touched)" class="error">
             Campo obrigatório
           </p>
+          <p *ngIf="salario?.errors?.['pattern']" class="error">
+            Limite do valor em 100000
+          </p>
         </div>
       </div>
 
       <div class="campo">
-        <label for="imagem">Imagem</label>
+        <label for="imagem">Imagem:</label>
         <input type="text" id="imagem" formControlName="imagem">
       </div>
 

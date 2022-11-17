@@ -35,6 +35,7 @@ import { EditCobradorComponent } from './components/editar/edit-cobrador/edit-co
 import { EditMotoristaComponent } from './components/editar/edit-motorista/edit-motorista.component';
 import { EditPassagemComponent } from './components/editar/edit-passagem/edit-passagem.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

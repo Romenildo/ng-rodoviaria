@@ -3,10 +3,13 @@
   <form [formGroup]="onibusForm" (ngSubmit)="salvar()">
 
     <div class="campo">
-      <label for="nomeViacao">nome viacão:</label>
+      <label for="nomeViacao">nome viação:</label>
       <input type="text" id="nomeViacao" formControlName="nomeViacao">
       <p *ngIf="!nomeViacao?.valid && (nomeViacao?.dirty || nomeViacao?.touched)" class="error">
         Campo obrigatório
+      </p>
+      <p *ngIf="nomeViacao?.errors?.['maxlength']" class="error">
+        Limite de 20 caracteres!
       </p>
     </div>
 
