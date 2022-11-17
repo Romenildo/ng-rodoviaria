@@ -31,4 +31,5 @@ export class CobradorComponent implements OnInit {
   cadastrar() {
     this.router.navigate(["cobrador", "cadastro"]);
   }
+
 }

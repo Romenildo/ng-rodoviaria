@@ -1,16 +1,19 @@
-<div class="passagem">
+<div class="onibus">
 
     <div class="conteudo">
+        <button type="button" class="btn-icon" (click)="remover()"><em class="material-icons">delete</em>
+        </button>
+
         <h2>{{onibus.nomeViacao}}</h2>
 
         <div class="infos">
 
             <span>Cobrador:</span>
             <div class="info-conteudo" *ngIf="onibus?.cobrador !== null">
-                <img [src]="onibus.cobrador?.imagem" alt="">
+                <img [src]="onibus.cobrador.imagem" alt="">
                 <div class="nome-sobrenome">
-                    <p>Nome: {{onibus.cobrador?.nome}} {{onibus.cobrador?.sobrenome}}</p>
-                    <p>Contato: {{onibus.cobrador?.contato}}</p>
+                    <p>Nome: {{onibus.cobrador.nome}} {{onibus.cobrador.sobrenome}}</p>
+                    <p>Contato: {{onibus.cobrador.contato}}</p>
                 </div>
             </div>
 
@@ -64,6 +67,7 @@
             <span>Passagem:</span>
             <div class="info-conteudo" *ngIf="onibus.passagem !== null">
 
+
                 <div class="block">
                     <p>Saida: </p>
                     <div class="info-passagem">
@@ -77,6 +81,12 @@
                     <div class="info-passagem">
                         <p>{{onibus.passagem?.destinoChegada}}</p>
                         <p> {{onibus.passagem?.horarioChegada}}</p>
+                    </div>
+                </div>
+
+                <div class="passageiros">
+                    <div class="passageiro" *ngFor="let passageiro of onibus?.passagem?.passageiros">
+                        <p>{{passageiro}}</p>
                     </div>
                 </div>
 

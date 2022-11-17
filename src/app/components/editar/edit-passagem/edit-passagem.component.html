@@ -1,0 +1,55 @@
+<div class="container">
+
+    <form [formGroup]="passagemForm" (ngSubmit)="atualizar()">
+  
+      <div class="campos">
+        <div class="campo">
+          <label for="destinoSaida">destino Saida:</label>
+          <input type="text" id="destinoSaida" formControlName="destinoSaida">
+          <p *ngIf="!destinoSaida?.valid && (destinoSaida?.dirty || destinoSaida?.touched)" class="error">
+            Campo obrigatório
+          </p>
+        </div>
+        <div class="campo">
+          <label for="destinoChegada">destino Chegada:</label>
+          <input type="text" id="destinoChegada" formControlName="destinoChegada">
+          <p *ngIf="!destinoChegada?.valid && (destinoChegada?.dirty || destinoChegada?.touched)" class="error">
+            Campo obrigatório
+          </p>
+        </div>
+      </div>
+  
+      <div class="campos">
+        <div class="campo">
+          <label for="horarioSaida">horario Saida:</label>
+          <input type="text" id="horarioSaida" formControlName="horarioSaida">
+          <p *ngIf="!horarioSaida?.valid && (horarioSaida?.dirty || horarioSaida?.touched)" class="error">
+            Campo obrigatório
+          </p>
+        </div>
+        <div class="campo">
+          <label for="horarioChegada">Horario Chegada:</label>
+          <input type="text" id="horarioChegada" formControlName="horarioChegada">
+          <p *ngIf="!horarioChegada?.valid && (horarioChegada?.dirty || horarioChegada?.touched)" class="error">
+            Campo obrigatório
+          </p>
+        </div>
+      </div>
+  
+      <div class="campo">
+        <label for="precoPassagem">Preco:</label>
+        <input type="text" id="precoPassagem" formControlName="precoPassagem">
+        <p *ngIf="!precoPassagem?.valid && (precoPassagem?.dirty || precoPassagem?.touched)" class="error">
+          Campo obrigatório
+        </p>
+      </div>
+  
+      <div class="acoes">
+        <button class="btn-cadastro" type="button" (click)="updateForm()">Usar atual</button>
+        <button class="btn-cadastro" type="button" (click)="toggleEdit('none')">Voltar</button>
+        <button type="submit" class="btn-filtro">Salvar</button>
+      </div>
+    </form>
+  
+  
+  </div>

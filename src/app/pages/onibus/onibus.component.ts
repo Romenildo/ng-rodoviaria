@@ -16,6 +16,7 @@ export class OnibusComponent implements OnInit {
     this.onibusService.listaOnibus$.subscribe(o => this.listaOnibus = o)
 
     this.onibusService.getOnibus().subscribe(resposta => {
+      console.log(resposta)
       this.onibusService.listaOnibus$.next(resposta as any);
     });
   }

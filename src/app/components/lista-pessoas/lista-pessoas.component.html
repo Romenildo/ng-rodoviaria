@@ -1,7 +1,6 @@
 <div class="pessoas">
-
   <app-pessoa
-   [tipo]="tipoPessoa"
+   [tipoPessoa]="tipoPessoa"
     *ngFor="let pessoa of pessoas"
      [pessoa]="pessoa"
       (onEdit)="handleEdit($event)">

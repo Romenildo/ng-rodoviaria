@@ -91,7 +91,6 @@ export class EditMotoristaComponent implements OnInit {
 
   toggleEdit(tipo: string) {
     const item = document.getElementById("modalMotoristaEdit");
-    console.log(item)
     if (!item) return;
     item.style.display = tipo
   }

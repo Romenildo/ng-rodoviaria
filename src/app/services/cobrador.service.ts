@@ -26,7 +26,6 @@ export class CobradorService {
   }
 
   atualizarCobrador(id: string, cobrador: Cobrador) {
-
     return this.http.put(`${environment.API_URL}/Cobrador/${id}`, cobrador);
   }
 

@@ -15,8 +15,7 @@ export class ListaPessoasComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.toggleEdit('none');
-    this.toggleEditMotorista('none');
+  
   }
 
   handleEdit(pessoa: any) {

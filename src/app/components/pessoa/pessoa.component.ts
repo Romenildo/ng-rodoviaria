@@ -12,7 +12,7 @@ import { MotoristaService } from 'src/app/services/motorista.service';
 export class PessoaComponent implements OnInit {
 
   @Input() pessoa?: Cobrador | Motorista | any;
-  @Input() tipo?: string;
+  @Input() tipoPessoa?: string;
   @Output() pessoaEdit?: Cobrador | Motorista;
 
   @Output('onEdit') editEmitter: EventEmitter<any> = new EventEmitter();
@@ -24,8 +24,7 @@ export class PessoaComponent implements OnInit {
   }
 
   remover() {
-    
-    if(this.tipo == 'cobrador'){
+    if(this.tipoPessoa == 'cobrador'){
       if (this.pessoa != null) {
         this.cobradorService
         .removerCobrador(this.pessoa.id)
@@ -39,6 +38,7 @@ export class PessoaComponent implements OnInit {
       }
 
     }else{
+      
       if (this.pessoa != null) {
         this.motoristaService
         .removerMotorista(this.pessoa.id)
@@ -54,8 +54,7 @@ export class PessoaComponent implements OnInit {
   }
 
   editar(){
-    if(this.tipo == 'cobrador'){
-      console.log('foi')
+    if(this.tipoPessoa == 'cobrador'){
       this.toggleEdit('block')
     }else{
       this.toggleEditMotorista('block')

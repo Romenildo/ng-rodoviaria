@@ -7,5 +7,5 @@ export interface Onibus {
   nomeViacao: string;
   cobrador: Cobrador;
   motorista: Motorista;
-  passagem: Passagem
+  passagem: Passagem;
 }

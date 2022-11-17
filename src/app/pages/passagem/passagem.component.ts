@@ -16,6 +16,7 @@ export class PassagemComponent implements OnInit {
     this.passagemService.passagens$.subscribe(passagens => this.passagens = passagens)
 
     this.passagemService.getPassagens().subscribe(resposta => {
+      console.log(resposta)
       this.passagemService.passagens$.next(resposta as any);
     });
   }

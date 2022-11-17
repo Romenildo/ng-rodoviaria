@@ -86,7 +86,6 @@ export class EditCobradorComponent implements OnInit {
 
   toggleEdit(tipo: string) {
     const item = document.getElementById("modalCobradorEdit");
-    console.log(item)
     if (!item) return;
     item.style.display = tipo
   }

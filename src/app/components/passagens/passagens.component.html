@@ -1,8 +1,17 @@
 <div class="passagem">
 
     <div class="conteudo">
-        <button type="button" class="btn-icon" (click)="remover()"><em class="material-icons">delete</em>
+        <div class="botoes">
+            <button type="button" style="margin-left: 35px;" class="btn-icon" (click)="editar()"><em
+                    class="material-icons">edit</em>
+            </button>
+            <button type="button" class="btn-icon" (click)="remover()"><em class="material-icons">delete</em>
+            </button>
+            <button type="button" style="margin-left: 70px;" class="btn-icon" (click)="listar()"><em
+                class="material-icons">menu</em>
         </button>
+        </div>
+
         <div class="local-hora">
             <p> {{passagem?.destinoSaida}}</p>
             <p> {{passagem?.horarioSaida}}</p>
@@ -26,6 +35,30 @@
             </em>
         </div>
 
+        <div class="campo-onibus" *ngIf="passagem?.onibus != null">
+            <label for="onibus"><strong>Onibus associado:</strong> </label>
+            <label for="onibus"> {{passagem?.onibus?.nomeViacao}}</label>
+        </div>
     </div>
+
+
+    <app-modal id="modalPassagemEdit" style="display: none;">
+        <app-edit-passagem [passagem]="passagem"></app-edit-passagem>
+    </app-modal>
+
+
+    <app-modal id="modalPassageiros" style="display: none;">
+        <button type="button" class="btn-icon" style="margin-left:90%;" (click)="fecharPassageiros()">
+            <em class="material-icons">close</em></button>
+
+        <h1>Lista de Passageiros</h1>
+        <div class="lista">
+            <div class="conteudo" *ngFor="let passageiro of passagem?.passageiros;let i = index">
+                <p><strong>{{i+1}}. Nome:</strong>{{passageiro.nome}} {{passageiro.sobrenome}}</p>
+                <p><strong>Email:</strong> {{passageiro.email}}</p>
+                <p><strong>Seguro: </strong>{{passageiro.seguro?"Sim":"Não"}} <strong> Estudante:</strong>{{passageiro.tipo==2?"Sim":"Não"}} </p>
+            </div>
+        </div>
+    </app-modal>
 
 </div>

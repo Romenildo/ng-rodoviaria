@@ -32,9 +32,13 @@ export class ListaOnibusComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.updateLista();
+  }
+
+  updateLista(){
     this.cobradorService.cobradores$.subscribe(cobradores => this.cobradores = cobradores.filter(x => x.onibus == null))
     this.motoristaService.motoristas$.subscribe(motoristas => this.motoristas = motoristas.filter(x => x.onibus == null))
-    this.passagemService.passagens$.subscribe(passagens => this.passagens = passagens)
+    this.passagemService.passagens$.subscribe(passagens => this.passagens = passagens.filter(x=>x.onibus == null))
   }
 
   adicionarCobrador() {
@@ -50,19 +54,42 @@ export class ListaOnibusComponent implements OnInit {
   vincularCobrador(cobrador: any) {
     this.mostrarCobradores = false
     this.onibusService.vincularCobrador(this.onibus.id, cobrador.nome + cobrador.sobrenome).subscribe((res: any) => {
-      this.onibus.cobrador = res.body.cobrador
+      this.onibus.cobrador = res.cobrador
+      this.updateLista()
     })
+    
   }
 
   vincularMotorista(motorista: any) {
     this.mostrarMotoristas = false
     this.onibusService.vincularMotorista(this.onibus.id, motorista.nome + motorista.sobrenome).subscribe((res: any) => {
-      this.onibus.motorista = res.body.motorista
+      this.onibus.motorista = res.motorista
+      this.updateLista()
     })
+    
   }
   vincularPassagem(passagem: any) {
     this.mostrarPassagens = false
-    this.onibusService.vincularPassagem(this.onibus.id, passagem.id).subscribe((res: any) => this.onibus.passagem = res.body.passagem)
+    this.onibusService.vincularPassagem(this.onibus.id, passagem.id).subscribe((res: any) => {
+      console.log(res)
+      this.onibus.passagem = res.passagem
+      this.updateLista()
+    })
+
+  }
+
+  remover() {
+    if (this.onibus != null) {
+      this.onibusService
+        .removerOnibus(this.onibus?.id)
+        .subscribe(() => {
+          const atuais = this.onibusService.listaOnibus$.getValue();
+          const deletados = atuais.filter(d => d.id !== this.onibus?.id);
+          this.onibusService.listaOnibus$.next(deletados);
+        }, error => {
+          alert("Onibus deve estar vazio para ser excluido!")
+        });
+    }
   }
 
 }

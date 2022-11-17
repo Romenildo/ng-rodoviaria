@@ -33,4 +33,26 @@ export class PassagensComponent implements OnInit {
         });
     }
   }
+  editar() {
+    this.toggleEditPassagem('block');
+  }
+
+  listar(){
+    this.toggleListarPassageiro('block');
+  }
+  fecharPassageiros(){
+    this.toggleListarPassageiro('none');
+  }
+
+  toggleEditPassagem(tipo: string) {
+    const item = document.getElementById("modalPassagemEdit");
+    if (!item) return;
+    item.style.display = tipo
+  }
+  
+  toggleListarPassageiro(tipo: string) {
+    const item = document.getElementById("modalPassageiros");
+    if (!item) return;
+    item.style.display = tipo
+  }
 }

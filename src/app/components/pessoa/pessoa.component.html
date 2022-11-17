@@ -31,7 +31,7 @@
         <label for="contato">{{pessoa?.contato}}</label>
       </div>
 
-      <div class="campo" *ngIf="tipo ==='motorista'">
+      <div class="campo" *ngIf="tipoPessoa ==='motorista'">
         <label for="cnh" class="bold">Cnh:</label>
         <label for="cnh">{{pessoa?.cnh}}</label>
       </div>
@@ -39,7 +39,12 @@
         <label for="salario" class="bold" style="padding-left: 30%;">Salário:</label>
         <label for="salario"> R${{pessoa?.salario}}</label>
       </div>
+      <div class="campo" *ngIf="pessoa?.onibus != null" style="position: absolute; left:45px;margin-top:10px;">
+        <label for="onibus" class="bold">Onibus associado: </label>
+        <label for="onibus"> {{pessoa?.onibus?.nomeViacao}}</label>
+      </div>
     </div>
+    
 
   </div>
 

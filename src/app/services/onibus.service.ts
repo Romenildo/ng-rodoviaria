@@ -29,26 +29,15 @@ export class OnibusService {
   }
 
   vincularCobrador(idOnibus: string, nomeCobrador: string) {
-
-    const req = new HttpRequest('GET', `${environment.API_URL}/Onibus/${idOnibus}/vincularCobrador/${nomeCobrador}`, {
-      responseType: 'text'
-    });
-    return this.http.request(req);
+    return this.http.get(`${environment.API_URL}/Onibus/${idOnibus}/vincularCobrador/${nomeCobrador}`);
   }
 
   vincularMotorista(idOnibus: string, nomeMotorista: string) {
-
-    const req = new HttpRequest('GET', `${environment.API_URL}/Onibus/${idOnibus}/vincularMotorista/${nomeMotorista}`, {
-      responseType: 'text'
-    });
-    return this.http.request(req);
+    return this.http.get(`${environment.API_URL}/Onibus/${idOnibus}/vincularMotorista/${nomeMotorista}`);
   }
-  vincularPassagem(idOnibus: string, idPassagem: string) {
 
-    const req = new HttpRequest('GET', `${environment.API_URL}/Onibus/${idOnibus}/vincularPassagem/${idPassagem}`, {
-      responseType: 'text'
-    });
-    return this.http.request(req);
+  vincularPassagem(idOnibus: string, idPassagem: string) {
+    return this.http.get(`${environment.API_URL}/Onibus/${idOnibus}/vincularPassagem/${idPassagem}`);
   }
 
 }
