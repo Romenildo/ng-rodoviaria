@@ -1,6 +1,7 @@
 # NgRodoviaria
 
 Projeto Desenvolvido em [Angular CLI](https://github.com/angular/angular-cli) versão 14.2.8.
+Projeto Consume os dados da [Api](https://github.com/Romenildo/Projeto-Minsait)
 
 # MOSTRANDO A APLICAÇÃO
 A aplicação consiste em um sistema de rodoviária para o controle dos funcionacios e vendas de passagens.
@@ -44,5 +45,5 @@ E finalmente associando cada entidade a um Onibus e alterando as demais:
 ![](https://github.com/Romenildo/Treinamento-GIT/blob/master/imgs/mindsait/motoristaAssociado.png)
 ![](https://github.com/Romenildo/Treinamento-GIT/blob/master/imgs/mindsait/passagemAssociado.png)
 
-#Fim
+# Fim
 

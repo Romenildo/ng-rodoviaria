@@ -53,6 +53,7 @@
 
         <h1>Lista de Passageiros</h1>
         <div class="lista">
+            <h2 *ngIf="passagem?.passageiros == null" >Não há passageiros</h2>
             <div class="conteudo" *ngFor="let passageiro of passagem?.passageiros;let i = index">
                 <p><strong>{{i+1}}. Nome:</strong>{{passageiro.nome}} {{passageiro.sobrenome}}</p>
                 <p><strong>Email:</strong> {{passageiro.email}}</p>
