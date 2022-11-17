@@ -25,7 +25,7 @@ export class CadOnibusComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
+
   get nomeViacao() {
     return this.onibusForm.get('nomeViacao');
   }
@@ -39,7 +39,7 @@ export class CadOnibusComponent implements OnInit {
           const currentItems = this.onibusService.listaOnibus$.getValue();
           currentItems.push(res);
         }, error => {
-          alert("Não foi possível realizar o cadastro: " + error);
+          alert(error.error.split('\r')[0]);
         });
     } else {
       alert("Verifique os campos obrigatórios!");

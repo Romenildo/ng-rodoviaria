@@ -58,7 +58,7 @@ export class EditPassagemComponent implements OnInit {
           itemUpdate.horarioSaida = this.passagemForm.value.horarioSaida;
           itemUpdate.precoPassagem = this.passagemForm.value.precoPassagem;
         }, error => {
-          alert("Não foi possível Atualizar: "+error);
+          alert(error.error.split('\r')[0]);
         });
     } else {
       alert("Verifique os campos obrigatórios!");

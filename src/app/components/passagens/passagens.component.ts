@@ -29,7 +29,7 @@ export class PassagensComponent implements OnInit {
           const deletados = atuais.filter(d => d.id !== this.passagem?.id);
           this.passagemService.passagens$.next(deletados);
         }, error => {
-          console.log(error)
+          alert(error.error.split('\r')[0]);
         });
     }
   }

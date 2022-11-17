@@ -67,8 +67,7 @@ export class CadMotoristaComponent implements OnInit {
         .subscribe((res) => {
           this.router.navigate(["motorista"]);
         }, error => {
-          alert("Não foi possível realizar o cadastro: "+ error);
-        });
+          alert(error.error.split('\r')[0]);        });
     } else {
       alert("Verifique os campos obrigatórios!");
     }

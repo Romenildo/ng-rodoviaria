@@ -68,7 +68,7 @@ export class EditMotoristaComponent implements OnInit {
           itemUpdate.salario = this.motoristaForm.value.salario;
           itemUpdate.imagem = this.motoristaForm.value.imagem;
         }, error => {
-          alert("Não foi possível Atualizar.");
+          alert(error.error.split('\r')[0]);
         });
     } else {
       alert("Verifique os campos obrigatórios!");

@@ -72,7 +72,7 @@ export class CadPassageiroComponent implements OnInit {
           this.routerA.params.subscribe(p => this.idPassagem = p['idPassagem'])
           this.router.navigate(["passagem", this.idPassagem, "passageiro", res.nome + res.sobrenome, "finalizado"]);
         }, error => {
-          alert("Não foi possível realizar o cadastro: "+error);
+          alert(error.error.split('\r')[0]);
         });
     } else {
       alert("Verifique os campos obrigatórios!");

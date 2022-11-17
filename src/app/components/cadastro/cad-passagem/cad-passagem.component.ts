@@ -53,7 +53,7 @@ export class CadPassagemComponent implements OnInit {
           const currentItems = this.passagemService.passagens$.getValue();
           currentItems.push(res);
         }, error => {
-          alert("Não foi possível realizar o cadastro.");
+          alert(error.error.split('\r')[0]);
         });
     } else {
       alert("Verifique os campos obrigatórios!");

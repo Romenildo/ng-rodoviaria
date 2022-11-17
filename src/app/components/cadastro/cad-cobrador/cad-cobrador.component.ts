@@ -64,7 +64,7 @@ export class CadCobradorComponent implements OnInit {
         .subscribe((res) => {
           this.router.navigate(["cobrador"]);
         }, error => {
-          alert("Não foi possível realizar o cadastro:" + error);
+          alert(error.error.split('\r')[0]);
         });
     } else {
       alert("Verifique os campos obrigatórios!");

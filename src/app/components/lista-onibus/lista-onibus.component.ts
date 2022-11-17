@@ -32,13 +32,23 @@ export class ListaOnibusComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.cobradorService.getCobradores().subscribe(resposta => {
+      this.cobradorService.cobradores$.next(resposta as any);
+    });
+    this.motoristaService.getMotoristas().subscribe(resposta => {
+      this.motoristaService.motoristas$.next(resposta as any);
+    });
+    this.passagemService.getPassagens().subscribe(resposta => {
+      this.passagemService.passagens$.next(resposta as any);
+    });
+
     this.updateLista();
   }
 
-  updateLista(){
+  updateLista() {
     this.cobradorService.cobradores$.subscribe(cobradores => this.cobradores = cobradores.filter(x => x.onibus == null))
     this.motoristaService.motoristas$.subscribe(motoristas => this.motoristas = motoristas.filter(x => x.onibus == null))
-    this.passagemService.passagens$.subscribe(passagens => this.passagens = passagens.filter(x=>x.onibus == null))
+    this.passagemService.passagens$.subscribe(passagens => this.passagens = passagens.filter(x => x.onibus == null))
   }
 
   adicionarCobrador() {
@@ -57,7 +67,7 @@ export class ListaOnibusComponent implements OnInit {
       this.onibus.cobrador = res.cobrador
       this.updateLista()
     })
-    
+
   }
 
   vincularMotorista(motorista: any) {
@@ -66,12 +76,11 @@ export class ListaOnibusComponent implements OnInit {
       this.onibus.motorista = res.motorista
       this.updateLista()
     })
-    
+
   }
   vincularPassagem(passagem: any) {
     this.mostrarPassagens = false
     this.onibusService.vincularPassagem(this.onibus.id, passagem.id).subscribe((res: any) => {
-      console.log(res)
       this.onibus.passagem = res.passagem
       this.updateLista()
     })

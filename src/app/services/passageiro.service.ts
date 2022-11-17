@@ -30,7 +30,6 @@ export class PassageiroService {
   }
 
   comprarPassagem(idPassagem: string, nomeSobrenome: string) {
-
     const req = new HttpRequest('GET', `${environment.API_URL}/Passageiro/${nomeSobrenome}/ComprarPassagem/${idPassagem}`, {
       responseType: 'text'
     });

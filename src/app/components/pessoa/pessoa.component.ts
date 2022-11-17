@@ -33,7 +33,7 @@ export class PessoaComponent implements OnInit {
           const deletados = atuais.filter(d => d.id !== this.pessoa?.id);
           this.cobradorService.cobradores$.next(deletados);
         }, error => {
-          console.log(error)
+          alert(error.error.split('\r')[0]);
         });
       }
 
@@ -47,7 +47,7 @@ export class PessoaComponent implements OnInit {
           const deletados = atuais.filter(d => d.id !== this.pessoa?.id);
           this.motoristaService.motoristas$.next(deletados);
         }, error => {
-          console.log(error)
+          alert(error.error.split('\r')[0]);
         });
       }
     }

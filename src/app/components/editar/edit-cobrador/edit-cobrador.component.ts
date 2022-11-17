@@ -64,7 +64,7 @@ export class EditCobradorComponent implements OnInit {
           itemUpdate.salario = this.cobradorForm.value.salario;
           itemUpdate.imagem = this.cobradorForm.value.imagem;
         }, error => {
-          alert("Não foi possível Atualizar.");
+          alert(error.error.split('\r')[0]);
         });
     } else {
       alert("Verifique os campos obrigatórios!");
